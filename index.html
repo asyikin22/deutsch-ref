@@ -1,232 +1,620 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Negation Rules: nicht & kein</title>
-    <!-- Tailwind for base reset + utility helpers if needed -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        :root {
-            --bg-main: #0b0f19;
-            --bg-card: #151d30;
-            --border-color: #22314d;
-            --text-main: #f3f4f6;
-            --muted: #9ca3af;
-            
-            /* High-Contrast Glow Highlights */
-            --color-kein: #f43f5e;     /* Vibrant Rose/Red */
-            --color-nicht: #4ade80;    /* Bright Electric Green */
-            --color-yellow: #facc15;   /* Bright Yellow */
-            --color-blue: #3b82f6;     /* Bright Blue */
-        }
-
-        body {
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            padding-bottom: 80px; /* Space for mobile nav */
-        }
-
-        .dashboard-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 16px;
-        }
-
-        .rule-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Target the head title of the second table to be Yellow */
-        .yellow-header {
-            color: var(--color-yellow) !important;
-        }
-
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-        }
-
-        /* Specific Keyword Styling inside headers */
-        .kw-kein { color: var(--color-kein); }
-        .kw-nicht { color: var(--color-nicht); }
-
-        /* General rule layouts */
-        .grid-layout {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 16px;
-        }
-
-        .rule-item {
-            background: rgba(255, 255, 255, 0.02);
-            border-left: 4px solid var(--border-color);
-            padding: 12px;
-            border-radius: 0 8px 8px 0;
-        }
-
-        /* Inline highlighting for grammar components */
-        .neg-rule { font-weight: 700; padding: 2px 4px; border-radius: 4px; }
-        .neg-rule.kw-kein { background: rgba(244, 63, 94, 0.15); }
-        .neg-rule.kw-nicht { background: rgba(74, 222, 128, 0.15); }
-        .neg-rule.kw-verb { color: var(--color-blue); background: rgba(59, 130, 246, 0.15); }
-
-        .example-box {
-            margin-top: 8px;
-            font-size: 14px;
-            background: rgba(0,0,0,0.2);
-            padding: 8px;
-            border-radius: 6px;
-            border: 1px dashed var(--border-color);
-        }
-
-        .de-sentence { color: #fff; font-weight: 500; }
-        .en-sentence { color: var(--muted); font-size: 13px; }
-
-        /* Custom Table Styling for layout clarity */
-        .rule-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 8px;
-        }
-        .rule-table th, .rule-table td {
-            padding: 10px 12px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 14px;
-        }
-        .rule-table th {
-            color: var(--muted);
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 11px;
-            letter-spacing: 0.05em;
-        }
-
-        /* Fixed Bottom Navigation for Quick Mobile Toggling */
-        .mobile-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #0e1422;
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-around;
-            padding: 12px 0;
-            z-index: 1000;
-        }
-        .nav-btn {
-            color: var(--muted);
-            font-size: 12px;
-            font-weight: 500;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-        }
-        .nav-btn.active {
-            color: var(--text-main);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deutsch Ref</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f0f0f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Deutsch">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f0f0f;
+  --surface:#1a1a1a;
+  --surface2:#232323;
+  --border:#2e2e2e;
+  --text:#e8e8e8;
+  --muted:#888;
+  --gold:#e8c97e;
+  --teal:#5dcaa5;
+  --coral:#f0997b;
+  --purple:#afa9ec;
+  --blue:#85b7eb;
+  --green:#97c459;
+  --pill-bg:#2a2a2a;
+}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;min-height:100vh;padding-bottom:60px}
+nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--bg);border-top:1px solid var(--border);padding:8px 12px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+.tab{flex-shrink:0;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:12px;cursor:pointer;transition:all .15s}
+.tab.active{background:var(--gold);color:#111;border-color:var(--gold);font-weight:600}
+.section{display:none;padding:12px}
+.section.active{display:block}
+#search-bar{position:sticky;top:0;z-index:99;background:var(--bg);padding:8px 12px;border-bottom:1px solid var(--border)}
+#search-input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:7px 14px;color:var(--text);font-size:13px;outline:none}
+#search-input:focus{border-color:var(--gold)}
+#search-input::placeholder{color:var(--muted)}
+#search-results{padding:12px;display:none}
+#search-results h2{margin-top:0}
+.search-match{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;margin-bottom:8px;font-size:12px;line-height:1.6}
+.search-match .match-section{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.search-highlight{background:#3a2a00;color:var(--gold);border-radius:2px;padding:0 2px}
+h2{font-size:13px;font-weight:600;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;margin:16px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+h2:first-child{margin-top:0}
+h3{font-size:12px;font-weight:600;color:var(--teal);margin:12px 0 6px}
+table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:4px}
+th{background:var(--surface2);color:var(--muted);font-weight:500;padding:5px 6px;text-align:left;font-size:11px;border:1px solid var(--border)}
+td{padding:5px 6px;border:1px solid var(--border);vertical-align:top}
+td:first-child{color:var(--muted);font-size:11px}
+.highlight{color:var(--gold);font-weight:600}
+.note{background:var(--surface);border-left:2px solid var(--gold);padding:8px 10px;border-radius:0 6px 6px 0;font-size:12px;margin:8px 0;line-height:1.5}
+.note strong{color:var(--gold)}
+.pill-row{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0}
+.pill{background:var(--pill-bg);border:1px solid var(--border);padding:3px 8px;border-radius:12px;font-size:11px}
+.pill.acc{border-color:var(--coral);color:var(--coral)}
+.pill.dat{border-color:var(--teal);color:var(--teal)}
+.pill.gen{border-color:var(--purple);color:var(--purple)}
+.pill.nom{border-color:var(--blue);color:var(--blue)}
+.tag{display:inline-block;padding:1px 5px;border-radius:4px;font-size:10px;font-weight:600;margin-left:4px;vertical-align:middle}
+.tag.acc{background:#3a1a10;color:var(--coral)}
+.tag.dat{background:#0a2a20;color:var(--teal)}
+.tag.nom{background:#0a1a30;color:var(--blue)}
+.tag.gen{background:#1a0a2a;color:var(--purple)}
+.ex{font-size:11px;color:var(--muted);font-style:italic;margin-top:2px}
+.ex span{color:var(--text);font-style:normal}
+.rule-box{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;margin:6px 0}
+.rule-box h3{margin:0 0 6px;font-size:12px}
+.q-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:6px 0}
+.q-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:7px 9px}
+.q-card .q{font-size:12px;color:var(--gold);font-weight:600}
+.q-card .a{font-size:11px;color:var(--muted);margin-top:2px}
+.neg-rule{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:12px;margin:8px 0}
+.neg-rule .keyword{font-size:16px;font-weight:600;display:block;margin-bottom:4px}
+.neg-rule .kw-adj{color:var(--coral)}
+.neg-rule .kw-verb{color:var(--teal)}
+.neg-rule .kw-adv{color:var(--purple)}
+.neg-ex{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.6}
+.neg-ex span{color:var(--text)}
+.mk-cell-m{background:#1a1a3a;color:var(--blue);font-weight:600;text-align:center}
+.mk-cell-f{background:#2a1a2a;color:var(--coral);font-weight:600;text-align:center}
+.mk-cell-n{background:#1a2a1a;color:var(--green);font-weight:600;text-align:center}
+.mk-cell-pl{background:#2a2010;color:var(--gold);font-weight:600;text-align:center}
+.mk-label{color:var(--muted);font-size:11px;font-weight:500;text-align:center}
+</style>
 </head>
 <body>
 
-    <div class="dashboard-container">
-        <!-- CARD 1: NICHT RULES (PART 1) -->
-        <div class="rule-card">
-            <h2 class="section-title">
-                <span class="kw-nicht">nicht</span> + ADJECTIVE / ADVERB / NOUN WITH POSSESSIVE
-            </h2>
-            
-            <div class="grid-layout">
-                <div class="rule-item" style="border-left-color: var(--color-nicht);">
-                    <div class="flex justify-between items-center">
-                        <span class="font-semibold text-sm">nicht + ADJECTIVE</span>
-                        <span class="neg-rule kw-nicht">Positions: Before Adj</span>
-                    </div>
-                    <div class="example-box">
-                        <div class="de-sentence">Das Auto ist <span class="text-emerald-400 font-bold">nicht</span> neu.</div>
-                        <div class="en-sentence">The car is not new.</div>
-                    </div>
-                </div>
+<nav>
+  <button class="tab active" onclick="show('keyrules')">Key Rules</button>
+  <button class="tab" onclick="show('wordorder')">Word Order</button>
+  <button class="tab" onclick="show('articles')">Articles</button>
+  <button class="tab" onclick="show('pronouns')">Pronouns</button>
+  <button class="tab" onclick="show('verbs')">Verbs</button>
+  <button class="tab" onclick="show('prepositions')">Prepositions</button>
+  <button class="tab" onclick="show('questions')">Questions</button>
+  <button class="tab" onclick="show('negation')">Negation</button>
+  <button class="tab" onclick="show('gender')">Gender</button>
+  <button class="tab" onclick="show('separable')">Separable</button>
+</nav>
 
-                <div class="rule-item" style="border-left-color: var(--color-nicht);">
-                    <div class="flex justify-between items-center">
-                        <span class="font-semibold text-sm">nicht + ADVERB</span>
-                        <span class="neg-rule kw-nicht">Position: Before Adv</span>
-                    </div>
-                    <div class="example-box">
-                        <div class="de-sentence">Er läuft <span class="text-emerald-400 font-bold">nicht</span> schnell.</div>
-                        <div class="en-sentence">He does not run fast.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- KEY RULES -->
+<div id="keyrules" class="section active">
 
-        <!-- CARD 2: VERB + NICHT (Now with Yellow Header) -->
-        <div class="rule-card">
-            <h2 class="section-title yellow-header">
-                VERB + <span class="yellow-header">nicht</span> (End of Sentence / Clause)
-            </h2>
-            
-            <table class="rule-table">
-                <thead>
-                    <tr>
-                        <th>Structure</th>
-                        <th>Position Rule</th>
-                        <th>Example Scenario</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="neg-rule kw-verb">Simple Verb</span></td>
-                        <td><span class="text-yellow-400 font-semibold">nicht</span> goes to the absolute end.</td>
-                        <td>
-                            <div class="de-sentence">Ich kaufe das Buch <span class="text-yellow-400 font-bold">nicht</span>.</div>
-                            <div class="en-sentence">I am not buying the book.</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="neg-rule kw-verb">Compound Verb</span><br><span class="text-xs text-gray-400">(Modal / Perfect)</span></td>
-                        <td><span class="text-yellow-400 font-semibold">nicht</span> goes right before the final verb element.</td>
-                        <td>
-                            <div class="de-sentence">Ich kann dich <span class="text-yellow-400 font-bold">nicht</span> hören.</div>
-                            <div class="en-sentence">I cannot hear you.</div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <p style="font-size:13px;color:var(--muted);margin-top:12px;">
-                *Note: When negating a whole sentence's action, the negative keyword prefers the end frame setup.
-            </p>
-        </div>
+  <h2>Ditransitive Verbs</h2>
+  <div class="note">Subject + verb + <span style="color:var(--teal)">person (DAT)</span> + <span style="color:var(--coral)">thing (AKK)</span></div>
+  <div class="ex" style="margin:6px 0">Ich gebe <span style="color:var(--teal)">dir</span> <span style="color:var(--coral)">das Buch</span>. — I give you the book.</div>
+
+  <h2>Subclause Word Order</h2>
+  <div class="rule-box">
+    <p style="font-size:12px;line-height:1.9">
+      <span style="color:var(--blue)">Main clause:</span> S + V + everything else<br>
+      <span style="color:var(--purple)">Subclause:</span> <span class="tag" style="background:#1a0a2a;color:var(--purple)">subconj</span> + S + DAT obj + AKK obj + infinitive + <strong style="color:var(--gold)">modal (end)</strong>
+    </p>
+    <div class="ex" style="margin-top:6px">..., weil ich <span>dir</span> <span>das Buch</span> geben <span style="color:var(--gold)">will</span>.</div>
+  </div>
+
+  <h2>Nächste / Next</h2>
+  <table>
+    <tr><th>Form</th><th>Case/Gender</th><th>Use for</th></tr>
+    <tr><td class="highlight">nächsten</td><td><span class="tag acc">AKK</span> Masc</td><td>Tag, Monat, Jahreszeit</td></tr>
+    <tr><td class="highlight">nächste</td><td><span class="tag nom">NOM</span> Fem</td><td>Woche</td></tr>
+    <tr><td class="highlight">nächstes</td><td><span class="tag nom">NOM</span> Neut</td><td>Jahr, Wochenende</td></tr>
+  </table>
+
+  <h2>Accusative — When to Use</h2>
+  <div class="pill-row">
+    <div class="pill acc">After a verb (direct object)</div>
+    <div class="pill acc">After accusative prepositions</div>
+    <div class="pill acc">Movement / direction</div>
+  </div>
+
+  <h2>Master Key — Adjective Endings</h2>
+  <table>
+    <tr>
+      <th class="mk-label"></th>
+      <th class="mk-cell-m">M</th>
+      <th class="mk-cell-f">F</th>
+      <th class="mk-cell-n">N</th>
+      <th class="mk-cell-pl">PL</th>
+    </tr>
+    <tr><td><span class="tag nom">NOM</span></td><td class="mk-cell-m" style="background:transparent;color:var(--blue)">-er</td><td class="mk-cell-f" style="background:transparent;color:var(--coral)">-e</td><td class="mk-cell-n" style="background:transparent;color:var(--green)">-es</td><td class="mk-cell-pl" style="background:transparent;color:var(--gold)">-e</td></tr>
+    <tr><td><span class="tag acc">AKK</span></td><td class="highlight">-en</td><td style="color:var(--coral)">-e</td><td style="color:var(--green)">-es</td><td style="color:var(--gold)">-e</td></tr>
+    <tr><td><span class="tag dat">DAT</span></td><td class="highlight">-em</td><td class="highlight" style="color:var(--coral)">-er</td><td class="highlight">-em</td><td class="highlight" style="color:var(--gold)">-en</td></tr>
+    <tr><td><span class="tag gen">GEN</span></td><td>-es</td><td style="color:var(--coral)">-er</td><td>-es</td><td style="color:var(--gold)">-er</td></tr>
+  </table>
+  <div class="note">Strong endings (no article / indefinite article). Weak endings after definite article = mostly <strong>-en</strong></div>
+
+  <h2>Past Tense (Perfekt)</h2>
+  <table>
+    <tr><th>Formula</th><th>Used for</th></tr>
+    <tr><td style="color:var(--teal)">haben + Partizip II</td><td>Most verbs</td></tr>
+    <tr><td style="color:var(--coral)">sein + Partizip II</td><td>Movement verbs</td></tr>
+    <tr><td>ge + stem + t</td><td class="ex"><span>machen → gemacht</span></td></tr>
+    <tr><td>ge + stem + en</td><td class="ex"><span>fahren → gefahren</span></td></tr>
+    <tr><td>no ge- prefix</td><td>verbs ending in -ieren</td></tr>
+  </table>
+
+</div>
+
+<!-- WORD ORDER -->
+<div id="wordorder" class="section">
+  <h2>TeKaMoLo</h2>
+  <div class="note">Adverbs go in this order after the verb.</div>
+  <table>
+    <tr>
+      <th style="color:var(--gold)">Te — When?</th>
+      <th style="color:var(--teal)">Ka — Why?</th>
+      <th style="color:var(--purple)">Mo — How?</th>
+      <th style="color:var(--coral)">Lo — Where?</th>
+    </tr>
+    <tr>
+      <td style="color:var(--gold)">Temporal</td>
+      <td style="color:var(--teal)">Kausal</td>
+      <td style="color:var(--purple)">Modal</td>
+      <td style="color:var(--coral)">Lokal</td>
+    </tr>
+    <tr><td>heute</td><td>wegen Arbeit</td><td>schnell</td><td>nach Berlin</td></tr>
+  </table>
+  <div class="ex" style="margin:6px 0">Ich fahre <span style="color:var(--gold)">morgen</span> <span style="color:var(--purple)">mit dem Zug</span> <span style="color:var(--coral)">nach Berlin</span>.</div>
+
+  <h2>Main Clause</h2>
+  <div class="rule-box">
+    <p style="font-size:12px;line-height:1.8"><strong>S + V</strong> (position 2) <strong>+ everything else</strong><br>
+    Verb is always position 2, no matter what comes first.</p>
+    <div class="ex" style="margin-top:6px">Heute <span>fahre</span> ich nach Berlin. ✓<br>Heute <span>ich fahre</span> nach Berlin. ✗</div>
+  </div>
+
+  <h2>Subordinate Clause</h2>
+  <div class="rule-box">
+    <p style="font-size:12px;line-height:1.8"><strong style="background:#2a1a00;color:var(--gold);padding:2px 6px;border-radius:4px;font-size:13px">subconj</strong> + S + (DAT obj) + (AKK obj) + ... + <strong style="color:var(--gold)">verb at end</strong></p>
+    <div class="ex" style="margin-top:6px">..., <span style="color:var(--gold)">weil</span> ich müde <span>bin</span>.<br>..., <span style="color:var(--gold)">dass</span> er das Buch lesen <span>will</span>.</div>
+  </div>
+
+  <h2>Subordinating Conjunctions</h2>
+  <table>
+    <tr><th>Subconj</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td class="highlight">weil</td><td>because</td><td class="ex"><span>..., weil ich müde bin.</span></td></tr>
+    <tr><td class="highlight">dass</td><td>that</td><td class="ex"><span>Ich weiß, dass er kommt.</span></td></tr>
+    <tr><td class="highlight">wenn</td><td>when / if (conditional)</td><td class="ex"><span>..., wenn es regnet.</span></td></tr>
+    <tr><td class="highlight">als</td><td>when (past, one-time)</td><td class="ex"><span>..., als ich jung war.</span></td></tr>
+    <tr><td class="highlight">ob</td><td>whether / if (indirect Q)</td><td class="ex"><span>Ich frage, ob er kommt.</span></td></tr>
+    <tr><td class="highlight">obwohl</td><td>although / even though</td><td class="ex"><span>..., obwohl es kalt ist.</span></td></tr>
+    <tr><td class="highlight">damit</td><td>so that</td><td class="ex"><span>..., damit du lernst.</span></td></tr>
+    <tr><td class="highlight">bevor</td><td>before</td><td class="ex"><span>..., bevor ich schlafe.</span></td></tr>
+    <tr><td class="highlight">nachdem</td><td>after</td><td class="ex"><span>..., nachdem er gegessen hat.</span></td></tr>
+    <tr><td class="highlight">während</td><td>while / during</td><td class="ex"><span>..., während sie arbeitet.</span></td></tr>
+    <tr><td class="highlight">bis</td><td>until</td><td class="ex"><span>..., bis er kommt.</span></td></tr>
+    <tr><td class="highlight">seitdem</td><td>since (then)</td><td class="ex"><span>..., seitdem ich hier bin.</span></td></tr>
+    <tr><td class="highlight">falls</td><td>in case / if</td><td class="ex"><span>..., falls es klappt.</span></td></tr>
+    <tr><td class="highlight">sodass</td><td>so that (result)</td><td class="ex"><span>..., sodass ich verstehe.</span></td></tr>
+  </table>
+  <div class="note">⚠️ All subconj send the <strong>conjugated verb to the end</strong> of the clause.</div>
+</div>
+
+<!-- ARTICLES -->
+<div id="articles" class="section">
+  <h2>Definite Articles (der/die/das)</h2>
+  <p style="font-size:11px;color:var(--muted);margin-bottom:6px">Known/specific noun</p>
+  <table>
+    <tr><th></th><th>Masc</th><th>Fem</th><th>Neut</th><th>Plural</th></tr>
+    <tr><td><span class="tag nom">NOM</span></td><td class="highlight">der</td><td class="highlight">die</td><td class="highlight">das</td><td class="highlight">die</td></tr>
+    <tr><td><span class="tag acc">AKK</span></td><td class="highlight">den</td><td>die</td><td>das</td><td>die</td></tr>
+    <tr><td><span class="tag dat">DAT</span></td><td class="highlight">dem</td><td class="highlight">der</td><td class="highlight">dem</td><td class="highlight">den</td></tr>
+    <tr><td><span class="tag gen">GEN</span></td><td>des</td><td>der</td><td>des</td><td>der</td></tr>
+  </table>
+  <div class="note">🔑 <strong>Masc changes most:</strong> NOM der → AKK den → DAT dem</div>
+
+  <h2>Indefinite Articles (ein/eine)</h2>
+  <p style="font-size:11px;color:var(--muted);margin-bottom:6px">Non-specific noun / first mention</p>
+  <table>
+    <tr><th></th><th>Masc</th><th>Fem</th><th>Neut</th></tr>
+    <tr><td><span class="tag nom">NOM</span></td><td class="highlight">ein</td><td class="highlight">eine</td><td class="highlight">ein</td></tr>
+    <tr><td><span class="tag acc">AKK</span></td><td class="highlight">einen</td><td>eine</td><td>ein</td></tr>
+    <tr><td><span class="tag dat">DAT</span></td><td class="highlight">einem</td><td class="highlight">einer</td><td class="highlight">einem</td></tr>
+  </table>
+
+  <h2>Demonstrative (dieser/diese/dieses)</h2>
+  <p style="font-size:11px;color:var(--muted);margin-bottom:6px">This / these</p>
+  <table>
+    <tr><th></th><th>Masc</th><th>Fem</th><th>Neut</th><th>Plural</th></tr>
+    <tr><td><span class="tag nom">NOM</span></td><td>dieser</td><td>diese</td><td>dieses</td><td>diese</td></tr>
+    <tr><td><span class="tag acc">AKK</span></td><td class="highlight">diesen</td><td>diese</td><td>dieses</td><td>diese</td></tr>
+    <tr><td><span class="tag dat">DAT</span></td><td class="highlight">diesem</td><td class="highlight">dieser</td><td class="highlight">diesem</td><td class="highlight">diesen</td></tr>
+  </table>
+
+  <h2>Possessive Determiners</h2>
+  <h3>Nominative</h3>
+  <table>
+    <tr><th>Person</th><th>Masc/Neut</th><th>Fem/Plural</th></tr>
+    <tr><td>ich (my)</td><td>mein</td><td>meine</td></tr>
+    <tr><td>du (your)</td><td>dein</td><td>deine</td></tr>
+    <tr><td>er/es (his/its)</td><td>sein</td><td>seine</td></tr>
+    <tr><td>sie (her)</td><td>ihr</td><td>ihre</td></tr>
+    <tr><td>wir (our)</td><td>unser</td><td>unsere</td></tr>
+    <tr><td>ihr (your pl)</td><td>euer</td><td>eure</td></tr>
+    <tr><td>Sie (formal)</td><td>Ihr</td><td>Ihre</td></tr>
+  </table>
+  <h3>Accusative — Masc only changes</h3>
+  <table>
+    <tr><th>Person</th><th>Masc</th><th>Neut</th><th>Fem/Plural</th></tr>
+    <tr><td>ich</td><td class="highlight">meinen</td><td>mein</td><td>meine</td></tr>
+    <tr><td>du</td><td class="highlight">deinen</td><td>dein</td><td>deine</td></tr>
+    <tr><td>er/es</td><td class="highlight">seinen</td><td>sein</td><td>seine</td></tr>
+    <tr><td>sie (her)</td><td class="highlight">ihren</td><td>ihr</td><td>ihre</td></tr>
+    <tr><td>wir</td><td class="highlight">unseren</td><td>unser</td><td>unsere</td></tr>
+    <tr><td>ihr (you pl)</td><td class="highlight">euren</td><td>euer</td><td>eure</td></tr>
+    <tr><td>sie/Sie</td><td class="highlight">ihren/Ihren</td><td>ihr/Ihr</td><td>ihre/Ihre</td></tr>
+  </table>
+  <h3>Dative</h3>
+  <table>
+    <tr><th>Person</th><th>Masc/Neut</th><th>Fem</th><th>Plural</th></tr>
+    <tr><td>ich</td><td>meinem</td><td>meiner</td><td>meinen</td></tr>
+    <tr><td>du</td><td>deinem</td><td>deiner</td><td>deinen</td></tr>
+    <tr><td>er/es</td><td>seinem</td><td>seiner</td><td>seinen</td></tr>
+    <tr><td>sie (her)</td><td>ihrem</td><td>ihrer</td><td>ihren</td></tr>
+    <tr><td>wir</td><td>unserem</td><td>unserer</td><td>unseren</td></tr>
+    <tr><td>ihr (you pl)</td><td>eurem</td><td>eurer</td><td>euren</td></tr>
+    <tr><td>sie/Sie</td><td>ihrem/Ihrem</td><td>ihrer/Ihrer</td><td>ihren/Ihren</td></tr>
+  </table>
+</div>
+
+<!-- PRONOUNS -->
+<div id="pronouns" class="section">
+  <div class="note" style="margin-bottom:10px">
+    <strong style="color:var(--coral)">Accusative (AKK)</strong> = direct object — <em>I see him</em><br>
+    <strong style="color:var(--teal)">Dative (DAT)</strong> = indirect object — <em>to me / for me</em>
+  </div>
+
+  <div class="rule-box" style="margin-bottom:10px">
+    <h3 style="color:var(--gold)">mir vs mich</h3>
+    <table style="margin-top:6px">
+      <tr><th style="color:var(--teal)">mir (DAT)</th><th style="color:var(--coral)">mich (AKK)</th></tr>
+      <tr><td>indirect object / followed by a noun</td><td>direct object / no noun after</td></tr>
+      <tr><td class="ex"><span>Es geht mir gut.</span> — I'm doing well.</td><td class="ex"><span>Ich wasche mich.</span> — I wash myself.</td></tr>
+      <tr><td class="ex"><span>Er gibt mir das Buch.</span> — He gives me the book.</td><td class="ex"><span>Er sieht mich.</span> — He sees me.</td></tr>
+    </table>
+  </div>
+
+  <h2>Personal Pronouns</h2>
+  <table>
+    <tr><th></th><th>NOM</th><th>AKK</th><th>DAT</th></tr>
+    <tr><td>I</td><td>ich</td><td>mich</td><td>mir</td></tr>
+    <tr><td>you</td><td>du</td><td>dich</td><td>dir</td></tr>
+    <tr><td>he</td><td>er</td><td>ihn</td><td>ihm</td></tr>
+    <tr><td>she</td><td>sie</td><td>sie</td><td>ihr</td></tr>
+    <tr><td>it</td><td>es</td><td>es</td><td>ihm</td></tr>
+    <tr><td>we</td><td>wir</td><td>uns</td><td>uns</td></tr>
+    <tr><td>you (pl)</td><td>ihr</td><td>euch</td><td>euch</td></tr>
+    <tr><td>they</td><td>sie</td><td>sie</td><td>ihnen</td></tr>
+    <tr><td>You (formal)</td><td>Sie</td><td>Sie</td><td>Ihnen</td></tr>
+  </table>
+
+  <h2>Possessive Pronouns</h2>
+  <table>
+    <tr><th>Person</th><th>Pronoun</th><th>Meaning</th></tr>
+    <tr><td>ich</td><td class="highlight">mein</td><td>my</td></tr>
+    <tr><td>du</td><td class="highlight">dein</td><td>your</td></tr>
+    <tr><td>er/es</td><td class="highlight">sein</td><td>his / its</td></tr>
+    <tr><td>sie (her)</td><td class="highlight">ihr</td><td>her</td></tr>
+    <tr><td>wir</td><td class="highlight">unser</td><td>our</td></tr>
+    <tr><td>ihr (you pl)</td><td class="highlight">euer</td><td>your (plural)</td></tr>
+    <tr><td>sie (they)</td><td class="highlight">ihr</td><td>their</td></tr>
+    <tr><td>Sie (formal)</td><td class="highlight">Ihr</td><td>your (formal)</td></tr>
+  </table>
+  <div class="note">These decline like <strong>ein/eine</strong> — add endings based on case &amp; gender of the noun they describe.</div>
+</div>
+
+<!-- VERBS -->
+<div id="verbs" class="section">
+  <h2>Haben & Sein</h2>
+  <table>
+    <tr><th>Pronoun</th><th>haben <span style="color:var(--muted);font-weight:400;font-size:10px">— static / action</span></th><th>sein <span style="color:var(--muted);font-weight:400;font-size:10px">— movement / state</span></th></tr>
+    <tr><td>ich</td><td>habe</td><td>bin</td></tr>
+    <tr><td>du</td><td>hast</td><td>bist</td></tr>
+    <tr><td>er/sie/es</td><td>hat</td><td>ist</td></tr>
+    <tr><td>wir</td><td>haben</td><td>sind</td></tr>
+    <tr><td>ihr</td><td>habt</td><td>seid</td></tr>
+    <tr><td>sie/Sie</td><td>haben</td><td>sind</td></tr>
+  </table>
+
+  <h2>Auxiliary Verbs</h2>
+  <table>
+    <tr><th>Pronoun</th><th>werden <span style="color:var(--muted);font-weight:400;font-size:10px">become/will</span></th><th>hatte <span style="color:var(--muted);font-weight:400;font-size:10px">had (past)</span></th><th>musste <span style="color:var(--muted);font-weight:400;font-size:10px">had to (past)</span></th><th>konnte <span style="color:var(--muted);font-weight:400;font-size:10px">was able (past)</span></th></tr>
+    <tr><td>ich</td><td class="highlight">werde</td><td class="highlight">hatte</td><td class="highlight">musste</td><td class="highlight">konnte</td></tr>
+    <tr><td>du</td><td class="highlight">wirst</td><td>hattest</td><td>musstest</td><td>konntest</td></tr>
+    <tr><td>er/sie/es</td><td class="highlight">wird</td><td class="highlight">hatte</td><td class="highlight">musste</td><td class="highlight">konnte</td></tr>
+    <tr><td>wir</td><td>werden</td><td>hatten</td><td>mussten</td><td>konnten</td></tr>
+    <tr><td>ihr</td><td>werdet</td><td>hattet</td><td>musstet</td><td>konntet</td></tr>
+    <tr><td>sie/Sie</td><td>werden</td><td>hatten</td><td>mussten</td><td>konnten</td></tr>
+  </table>
+  <div class="note"><strong>werden:</strong> main verb = to become &nbsp;|&nbsp; auxiliary = future tense (will)</div>
+
+  <h2>Modal Verbs</h2>
+  <table>
+    <tr><th>Verb</th><th>Meaning</th><th>ich</th><th>du</th><th>er/sie/es</th></tr>
+    <tr><td>dürfen</td><td style="color:var(--muted);font-size:11px">may/allowed</td><td>darf</td><td>darfst</td><td>darf</td></tr>
+    <tr><td>können</td><td style="color:var(--muted);font-size:11px">can/able</td><td>kann</td><td>kannst</td><td>kann</td></tr>
+    <tr><td>mögen</td><td style="color:var(--muted);font-size:11px">to like</td><td>mag</td><td>magst</td><td>mag</td></tr>
+    <tr><td>möchten</td><td style="color:var(--muted);font-size:11px">would like</td><td>möchte</td><td>möchtest</td><td>möchte</td></tr>
+    <tr><td>müssen</td><td style="color:var(--muted);font-size:11px">must</td><td>muss</td><td>musst</td><td>muss</td></tr>
+    <tr><td>sollen</td><td style="color:var(--muted);font-size:11px">should</td><td>soll</td><td>sollst</td><td>soll</td></tr>
+    <tr><td>wollen</td><td style="color:var(--muted);font-size:11px">to want</td><td>will</td><td>willst</td><td>will</td></tr>
+  </table>
+  <table style="margin-top:4px">
+    <tr><th>Verb</th><th>wir</th><th>ihr</th><th>sie/Sie</th></tr>
+    <tr><td>dürfen</td><td>dürfen</td><td>dürft</td><td>dürfen</td></tr>
+    <tr><td>können</td><td>können</td><td>könnt</td><td>können</td></tr>
+    <tr><td>mögen</td><td>mögen</td><td>mögt</td><td>mögen</td></tr>
+    <tr><td>möchten</td><td>möchten</td><td>möchtet</td><td>möchten</td></tr>
+    <tr><td>müssen</td><td>müssen</td><td>müsst</td><td>müssen</td></tr>
+    <tr><td>sollen</td><td>sollen</td><td>sollt</td><td>sollen</td></tr>
+    <tr><td>wollen</td><td>wollen</td><td>wollt</td><td>wollen</td></tr>
+  </table>
+</div>
+
+<!-- PREPOSITIONS -->
+<div id="prepositions" class="section">
+
+  <div class="note" style="margin-bottom:10px">
+    <strong style="color:var(--coral)">Accusative</strong> = direct object / movement / direction &nbsp;|&nbsp;
+    <strong style="color:var(--teal)">Dative</strong> = indirect object / to me / static location
+  </div>
+
+  <h2>Always Dative</h2>
+  <div class="pill-row">
+    <div class="pill dat">aus</div><div class="pill dat">außer</div><div class="pill dat">bei</div>
+    <div class="pill dat">gegenüber</div><div class="pill dat">mit</div><div class="pill dat">nach</div>
+    <div class="pill dat">seit</div><div class="pill dat">von</div><div class="pill dat">zu</div>
+  </div>
+
+  <h2>Accusative Only</h2>
+  <div class="pill-row">
+    <div class="pill acc">durch</div><div class="pill acc">für</div><div class="pill acc">gegen</div>
+    <div class="pill acc">ohne</div><div class="pill acc">um</div><div class="pill acc">bis</div>
+  </div>
+
+  <h2>Two-Way Prepositions (Accusative = movement / Dative = static)</h2>
+  <div class="pill-row">
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">in</div>
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">an</div>
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">auf</div>
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">über</div>
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">unter</div>
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">vor</div>
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">hinter</div>
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">neben</div>
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">zwischen</div>
+  </div>
+  <div class="note">🏃 Movement → <strong style="color:var(--coral)">Accusative</strong> (Wohin? Where to?) &nbsp;|&nbsp; 📍 Static → <strong style="color:var(--teal)">Dative</strong> (Wo? Where?)</div>
+
+  <h2>Static vs Movement</h2>
+  <table>
+    <tr><th></th><th style="color:var(--coral)">Accusative (going)</th><th style="color:var(--teal)">Dative (staying)</th></tr>
+    <tr><td>masc</td><td class="highlight">in den</td><td>im</td></tr>
+    <tr><td>neut</td><td class="highlight">ins</td><td>im</td></tr>
+    <tr><td>fem</td><td class="highlight">in die</td><td>in der</td></tr>
+  </table>
+  <div class="note" style="margin-top:6px">
+    Staying → <strong>im · am · beim · zur · zum</strong><br>
+    Going → <strong>ins · ans</strong><br>
+    zur (fem) · zum (masc/neut)
+  </div>
+
+  <h2>Place (Wo — static) → Dative</h2>
+  <table>
+    <tr><th>Prep</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td>in</td><td>in</td><td class="ex"><span>im Zimmer</span></td></tr>
+    <tr><td>an</td><td>at/on edge</td><td class="ex"><span>am Fenster</span></td></tr>
+    <tr><td>auf</td><td>on surface</td><td class="ex"><span>auf dem Tisch</span></td></tr>
+    <tr><td>bei</td><td>at s/o's place</td><td class="ex"><span>bei mir</span></td></tr>
+    <tr><td>zu</td><td>at (fixed)</td><td class="ex"><span>zu Hause</span></td></tr>
+    <tr><td>vor</td><td>in front of</td><td class="ex"><span>vor der Tür</span></td></tr>
+    <tr><td>hinter</td><td>behind</td><td class="ex"><span>hinter dem Haus</span></td></tr>
+    <tr><td>über</td><td>above</td><td class="ex"><span>über dem Bett</span></td></tr>
+    <tr><td>unter</td><td>under</td><td class="ex"><span>unter dem Tisch</span></td></tr>
+    <tr><td>neben</td><td>next to</td><td class="ex"><span>neben dir</span></td></tr>
+    <tr><td>zwischen</td><td>between</td><td class="ex"><span>zwischen uns</span></td></tr>
+  </table>
+
+  <h2>Direction (Wohin — movement) → Accusative</h2>
+  <table>
+    <tr><th>Prep</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td>in</td><td>into</td><td class="ex"><span>ins Zimmer</span></td></tr>
+    <tr><td>an</td><td>to edge</td><td class="ex"><span>ans Fenster</span></td></tr>
+    <tr><td>auf</td><td>onto</td><td class="ex"><span>auf den Tisch</span></td></tr>
+    <tr><td>zu</td><td>to people</td><td class="ex"><span>zum Arzt</span></td></tr>
+    <tr><td>nach</td><td>to cities</td><td class="ex"><span>nach Berlin</span></td></tr>
+    <tr><td>durch</td><td>through</td><td class="ex"><span>durch den Park</span></td></tr>
+    <tr><td>über</td><td>over/across</td><td class="ex"><span>über die Brücke</span></td></tr>
+  </table>
+
+  <h2>Time (Wann)</h2>
+  <table>
+    <tr><th>Prep</th><th>Used for</th><th>Example</th></tr>
+    <tr><td>an</td><td>days, dates</td><td class="ex"><span>am Montag</span></td></tr>
+    <tr><td>in</td><td>months, seasons</td><td class="ex"><span>im Juli</span></td></tr>
+    <tr><td>um</td><td>clock times</td><td class="ex"><span>um 8 Uhr</span></td></tr>
+    <tr><td>vor</td><td>ago/before</td><td class="ex"><span>vor zwei Tagen</span></td></tr>
+    <tr><td>nach</td><td>after</td><td class="ex"><span>nach der Arbeit</span></td></tr>
+    <tr><td>seit</td><td>since/for (ongoing)</td><td class="ex"><span>seit drei Jahren</span></td></tr>
+    <tr><td>bis</td><td>until</td><td class="ex"><span>bis Freitag</span></td></tr>
+    <tr><td>für</td><td>for (duration)</td><td class="ex"><span>für eine Woche</span></td></tr>
+  </table>
+
+  <h2>Mit + Dative</h2>
+  <table>
+    <tr><th>Article</th><th>Example</th></tr>
+    <tr><td>dem (masc/neut)</td><td class="ex"><span>mit dem Mann</span></td></tr>
+    <tr><td>der (fem)</td><td class="ex"><span>mit der Frau</span></td></tr>
+    <tr><td>einem (masc indef)</td><td class="ex"><span>mit einem Bus</span></td></tr>
+    <tr><td>einer (fem indef)</td><td class="ex"><span>mit einer Freundin</span></td></tr>
+  </table>
+</div>
+
+<!-- QUESTIONS -->
+<div id="questions" class="section">
+  <h2>Question Words</h2>
+  <div class="q-grid">
+    <div class="q-card"><div class="q">Wer</div><div class="a">Who</div></div>
+    <div class="q-card"><div class="q">Was</div><div class="a">What</div></div>
+    <div class="q-card"><div class="q">Wo</div><div class="a">Where (static)</div></div>
+    <div class="q-card"><div class="q">Wohin</div><div class="a">Where to</div></div>
+    <div class="q-card"><div class="q">Woher</div><div class="a">Where from</div></div>
+    <div class="q-card"><div class="q">Wann</div><div class="a">When</div></div>
+    <div class="q-card"><div class="q">Warum</div><div class="a">Why</div></div>
+    <div class="q-card"><div class="q">Wie</div><div class="a">How</div></div>
+    <div class="q-card"><div class="q">Wie viel</div><div class="a">How much</div></div>
+    <div class="q-card"><div class="q">Wie viele</div><div class="a">How many</div></div>
+  </div>
+
+  <h2>Case Trick — Who/Whom</h2>
+  <table>
+    <tr><th>Word</th><th>Case</th><th>Meaning</th><th>Role</th></tr>
+    <tr><td class="highlight">Wer</td><td><span class="tag nom">NOM</span></td><td>Who</td><td>Subject (doer)</td></tr>
+    <tr><td class="highlight">Wen</td><td><span class="tag acc">AKK</span></td><td>Whom</td><td>Direct object</td></tr>
+    <tr><td class="highlight">Wem</td><td><span class="tag dat">DAT</span></td><td>To whom</td><td>Indirect object</td></tr>
+    <tr><td class="highlight">Wessen</td><td><span class="tag gen">GEN</span></td><td>Whose</td><td>Possession</td></tr>
+    <tr><td class="highlight">Was</td><td><span class="tag nom">NOM</span>/<span class="tag acc">AKK</span></td><td>What</td><td>Things only</td></tr>
+  </table>
+</div>
+
+<!-- NEGATION -->
+<div id="negation" class="section">
+  <h2>Nicht vs Kein</h2>
+
+  <div class="neg-rule">
+    <span class="keyword" style="color:var(--coral)">kein / keine / kein</span>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:8px">Negates <strong style="color:var(--text)">nouns</strong> — no, not a, don't have</p>
+    <div class="neg-ex">Ich habe <span>kein Auto</span>. — I have no car.<br>Das ist <span>keine Katze</span>. — That's not a cat.</div>
+    <p style="font-size:11px;color:var(--muted);margin-top:8px">Follows ein/eine endings by case</p>
+  </div>
+
+  <div class="neg-rule" style="margin-top:10px">
+    <span class="keyword" style="color:var(--teal);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">nicht</span>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:10px">Negates everything else:</p>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="border-left:2px solid var(--coral);padding-left:10px">
+        <span class="neg-rule kw-adj" style="font-size:15px;font-weight:600;color:var(--coral)">nicht + ADJECTIVE</span>
+        <div class="neg-ex" style="margin-top:4px">Das ist nicht <span>schön</span>.<br>Er ist nicht <span>müde</span>.</div>
+      </div>
+      <div style="border-left:2px solid var(--teal);padding-left:10px">
+        <span style="font-size:15px;font-weight:600;color:var(--teal)">VERB + nicht</span>
+        <div class="neg-ex" style="margin-top:4px">Ich <span>schlafe</span> nicht.<br>Sie <span>kommt</span> nicht.</div>
+      </div>
+      <div style="border-left:2px solid var(--purple);padding-left:10px">
+        <span style="font-size:15px;font-weight:600;color:var(--purple)">nicht + ADVERB</span>
+        <div class="neg-ex" style="margin-top:4px">Nicht <span>hier</span>. / Nicht <span>so</span>.</div>
+      </div>
     </div>
+  </div>
 
-    <!-- Navigation Bar -->
-    <nav class="mobile-nav">
-        <a href="#" class="nav-btn active">
-            <span>Rules</span>
-        </a>
-        <a href="#" class="nav-btn">
-            <span>Examples</span>
-        </a>
-        <a href="#" class="nav-btn">
-            <span>Practice</span>
-        </a>
-    </nav>
+  <div class="note" style="margin-top:10px">
+    <strong>Quick test:</strong> Can you put "a/an" in front? → use <strong>kein</strong><br>
+    Otherwise → use <strong>nicht</strong>
+  </div>
+</div>
 
+<!-- GENDER -->
+<div id="gender" class="section">
+  <h2>Gender by Suffix</h2>
+
+  <h3 style="color:var(--blue)">Masculine endings</h3>
+  <div class="pill-row">
+    <div class="pill">-er</div><div class="pill">-el</div><div class="pill">-en</div>
+    <div class="pill">-ling</div><div class="pill">-ig</div><div class="pill">-ich</div>
+    <div class="pill">-or</div><div class="pill">-ismus</div>
+  </div>
+  <div class="note">Also: 1-syllable words (Arzt), days/months/seasons, cars, alcohol, most rivers, mountains</div>
+
+  <h3 style="color:var(--coral)">Feminine endings</h3>
+  <div class="pill-row">
+    <div class="pill">-e</div><div class="pill">-in</div><div class="pill">-ung</div>
+    <div class="pill">-schaft</div><div class="pill">-eit</div><div class="pill">-tat</div>
+    <div class="pill">-keit</div><div class="pill">-heit</div><div class="pill">-ie</div>
+    <div class="pill">-enz</div><div class="pill">-ur</div><div class="pill">-ion</div>
+  </div>
+  <div class="note">Also: motorbikes, ships, trees, flowers, rivers in Germany</div>
+
+  <h3 style="color:var(--teal)">Neuter endings</h3>
+  <div class="pill-row">
+    <div class="pill">-chen</div><div class="pill">-lein</div><div class="pill">-ma</div>
+    <div class="pill">-ment</div><div class="pill">-o</div><div class="pill">-um</div>
+  </div>
+  <div class="note">Also: young people, hotels & cinemas, metals, year, colors</div>
+</div>
+
+<!-- SEPARABLE VERBS -->
+<div id="separable" class="section">
+  <div class="note" style="margin-bottom:10px">
+    The prefix <strong style="color:var(--gold)">splits off</strong> and goes to the <strong style="color:var(--gold)">end</strong> of the main clause.<br>
+    <span class="ex" style="font-style:normal">Ich <strong style="color:var(--coral)">rufe</strong> dich <strong style="color:var(--coral)">an</strong>. — I call you.</span>
+  </div>
+
+  <h2>Goethe A1 Separable Verbs</h2>
+  <table>
+    <tr><th>Infinitive</th><th>English</th><th>Example (ich form)</th></tr>
+    <tr><td class="highlight">an·rufen</td><td>to call (phone)</td><td class="ex"><span>Ich rufe dich an.</span></td></tr>
+    <tr><td class="highlight">an·fangen</td><td>to begin / start</td><td class="ex"><span>Ich fange jetzt an.</span></td></tr>
+    <tr><td class="highlight">an·kommen</td><td>to arrive</td><td class="ex"><span>Ich komme um 8 an.</span></td></tr>
+    <tr><td class="highlight">an·machen</td><td>to turn on</td><td class="ex"><span>Ich mache das Licht an.</span></td></tr>
+    <tr><td class="highlight">an·ziehen</td><td>to put on (clothes)</td><td class="ex"><span>Ich ziehe mich an.</span></td></tr>
+    <tr><td class="highlight">auf·machen</td><td>to open</td><td class="ex"><span>Ich mache die Tür auf.</span></td></tr>
+    <tr><td class="highlight">auf·räumen</td><td>to tidy up</td><td class="ex"><span>Ich räume mein Zimmer auf.</span></td></tr>
+    <tr><td class="highlight">auf·stehen</td><td>to get up / stand up</td><td class="ex"><span>Ich stehe um 7 auf.</span></td></tr>
+    <tr><td class="highlight">aus·gehen</td><td>to go out</td><td class="ex"><span>Ich gehe heute Abend aus.</span></td></tr>
+    <tr><td class="highlight">aus·machen</td><td>to turn off</td><td class="ex"><span>Ich mache den Fernseher aus.</span></td></tr>
+    <tr><td class="highlight">aus·ziehen</td><td>to take off (clothes) / move out</td><td class="ex"><span>Ich ziehe mich aus.</span></td></tr>
+    <tr><td class="highlight">ein·kaufen</td><td>to shop / go shopping</td><td class="ex"><span>Ich kaufe im Supermarkt ein.</span></td></tr>
+    <tr><td class="highlight">ein·laden</td><td>to invite</td><td class="ex"><span>Ich lade dich ein.</span></td></tr>
+    <tr><td class="highlight">ein·schlafen</td><td>to fall asleep</td><td class="ex"><span>Ich schlafe früh ein.</span></td></tr>
+    <tr><td class="highlight">fern·sehen</td><td>to watch TV</td><td class="ex"><span>Ich sehe abends fern.</span></td></tr>
+    <tr><td class="highlight">mit·bringen</td><td>to bring along</td><td class="ex"><span>Ich bringe Kuchen mit.</span></td></tr>
+    <tr><td class="highlight">mit·kommen</td><td>to come along</td><td class="ex"><span>Ich komme mit.</span></td></tr>
+    <tr><td class="highlight">mit·nehmen</td><td>to take along</td><td class="ex"><span>Ich nehme das mit.</span></td></tr>
+    <tr><td class="highlight">vor·haben</td><td>to plan / intend</td><td class="ex"><span>Ich habe viel vor.</span></td></tr>
+    <tr><td class="highlight">vor·stellen</td><td>to introduce</td><td class="ex"><span>Ich stelle mich vor.</span></td></tr>
+    <tr><td class="highlight">weiter·machen</td><td>to continue / keep going</td><td class="ex"><span>Ich mache weiter.</span></td></tr>
+    <tr><td class="highlight">zurück·kommen</td><td>to come back / return</td><td class="ex"><span>Ich komme morgen zurück.</span></td></tr>
+    <tr><td class="highlight">zu·machen</td><td>to close</td><td class="ex"><span>Ich mache die Tür zu.</span></td></tr>
+    <tr><td class="highlight">ab·fahren</td><td>to depart / leave (vehicle)</td><td class="ex"><span>Der Zug fährt ab.</span></td></tr>
+    <tr><td class="highlight">ab·holen</td><td>to pick up (person/thing)</td><td class="ex"><span>Ich hole dich ab.</span></td></tr>
+  </table>
+</div>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+}
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
+</script>
 </body>
 </html>
