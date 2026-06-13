@@ -26,13 +26,22 @@
   --green:#97c459;
   --pill-bg:#2a2a2a;
 }
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;min-height:100vh}
-nav{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:10px 12px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;min-height:100vh;padding-bottom:60px}
+nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--bg);border-top:1px solid var(--border);padding:8px 12px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
 .tab{flex-shrink:0;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:12px;cursor:pointer;transition:all .15s}
 .tab.active{background:var(--gold);color:#111;border-color:var(--gold);font-weight:600}
 .section{display:none;padding:12px}
 .section.active{display:block}
+#search-bar{position:sticky;top:0;z-index:99;background:var(--bg);padding:8px 12px;border-bottom:1px solid var(--border)}
+#search-input{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:7px 14px;color:var(--text);font-size:13px;outline:none}
+#search-input:focus{border-color:var(--gold)}
+#search-input::placeholder{color:var(--muted)}
+#search-results{padding:12px;display:none}
+#search-results h2{margin-top:0}
+.search-match{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;margin-bottom:8px;font-size:12px;line-height:1.6}
+.search-match .match-section{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.search-highlight{background:#3a2a00;color:var(--gold);border-radius:2px;padding:0 2px}
 h2{font-size:13px;font-weight:600;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;margin:16px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--border)}
 h2:first-child{margin-top:0}
 h3{font-size:12px;font-weight:600;color:var(--teal);margin:12px 0 6px}
@@ -88,6 +97,7 @@ td:first-child{color:var(--muted);font-size:11px}
   <button class="tab" onclick="show('questions')">Questions</button>
   <button class="tab" onclick="show('negation')">Negation</button>
   <button class="tab" onclick="show('gender')">Gender</button>
+  <button class="tab" onclick="show('separable')">Separable</button>
 </nav>
 
 <!-- KEY RULES -->
@@ -101,7 +111,7 @@ td:first-child{color:var(--muted);font-size:11px}
   <div class="rule-box">
     <p style="font-size:12px;line-height:1.9">
       <span style="color:var(--blue)">Main clause:</span> S + V + everything else<br>
-      <span style="color:var(--purple)">Subclause:</span> S + DAT obj + AKK obj + infinitive + <strong style="color:var(--gold)">modal (end)</strong>
+      <span style="color:var(--purple)">Subclause:</span> <span class="tag" style="background:#1a0a2a;color:var(--purple)">subconj</span> + S + DAT obj + AKK obj + infinitive + <strong style="color:var(--gold)">modal (end)</strong>
     </p>
     <div class="ex" style="margin-top:6px">..., weil ich <span>dir</span> <span>das Buch</span> geben <span style="color:var(--gold)">will</span>.</div>
   </div>
@@ -147,39 +157,6 @@ td:first-child{color:var(--muted);font-size:11px}
     <tr><td>no ge- prefix</td><td>verbs ending in -ieren</td></tr>
   </table>
 
-  <h2>Werden — to become / future</h2>
-  <table>
-    <tr><th>Pronoun</th><th>Form</th></tr>
-    <tr><td>ich</td><td class="highlight">werde</td></tr>
-    <tr><td>du</td><td class="highlight">wirst</td></tr>
-    <tr><td>er/sie/es</td><td class="highlight">wird</td></tr>
-    <tr><td>wir</td><td>werden</td></tr>
-    <tr><td>ihr</td><td>werdet</td></tr>
-    <tr><td>sie/Sie</td><td>werden</td></tr>
-  </table>
-  <div class="note"><strong>1)</strong> Main verb = to become &nbsp;|&nbsp; <strong>2)</strong> Auxiliary = future tense (will)</div>
-
-  <h2>Haben — Simple Past (hatte)</h2>
-  <table>
-    <tr><th>Pronoun</th><th>Form</th></tr>
-    <tr><td>ich</td><td class="highlight">hatte</td></tr>
-    <tr><td>du</td><td>hattest</td></tr>
-    <tr><td>er/sie/es</td><td class="highlight">hatte</td></tr>
-    <tr><td>wir</td><td>hatten</td></tr>
-    <tr><td>ihr</td><td>hattet</td></tr>
-    <tr><td>sie/Sie</td><td>hatten</td></tr>
-  </table>
-
-  <h2>Müssen — Simple Past (musste)</h2>
-  <table>
-    <tr><th>Pronoun</th><th>Form</th></tr>
-    <tr><td>ich</td><td class="highlight">musste</td></tr>
-    <tr><td>du</td><td>musstest</td></tr>
-    <tr><td>er/sie/es</td><td class="highlight">musste</td></tr>
-    <tr><td>wir</td><td>mussten</td></tr>
-    <tr><td>ihr</td><td>musstet</td></tr>
-    <tr><td>sie/Sie</td><td>mussten</td></tr>
-  </table>
 </div>
 
 <!-- WORD ORDER -->
@@ -212,10 +189,29 @@ td:first-child{color:var(--muted);font-size:11px}
 
   <h2>Subordinate Clause</h2>
   <div class="rule-box">
-    <p style="font-size:12px;line-height:1.8">Subconj + S + (DAT obj) + (AKK obj) + ... + <strong style="color:var(--gold)">verb at end</strong></p>
-    <div class="ex" style="margin-top:6px">..., weil ich <span>müde bin</span>.<br>..., dass er das Buch lesen <span>will</span>.</div>
+    <p style="font-size:12px;line-height:1.8"><strong style="background:#2a1a00;color:var(--gold);padding:2px 6px;border-radius:4px;font-size:13px">subconj</strong> + S + (DAT obj) + (AKK obj) + ... + <strong style="color:var(--gold)">verb at end</strong></p>
+    <div class="ex" style="margin-top:6px">..., <span style="color:var(--gold)">weil</span> ich müde <span>bin</span>.<br>..., <span style="color:var(--gold)">dass</span> er das Buch lesen <span>will</span>.</div>
   </div>
-  <div class="note">Common subconj: weil · dass · wenn · obwohl · damit · bevor · nachdem · als · ob</div>
+
+  <h2>Subordinating Conjunctions</h2>
+  <table>
+    <tr><th>Subconj</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td class="highlight">weil</td><td>because</td><td class="ex"><span>..., weil ich müde bin.</span></td></tr>
+    <tr><td class="highlight">dass</td><td>that</td><td class="ex"><span>Ich weiß, dass er kommt.</span></td></tr>
+    <tr><td class="highlight">wenn</td><td>when / if (conditional)</td><td class="ex"><span>..., wenn es regnet.</span></td></tr>
+    <tr><td class="highlight">als</td><td>when (past, one-time)</td><td class="ex"><span>..., als ich jung war.</span></td></tr>
+    <tr><td class="highlight">ob</td><td>whether / if (indirect Q)</td><td class="ex"><span>Ich frage, ob er kommt.</span></td></tr>
+    <tr><td class="highlight">obwohl</td><td>although / even though</td><td class="ex"><span>..., obwohl es kalt ist.</span></td></tr>
+    <tr><td class="highlight">damit</td><td>so that</td><td class="ex"><span>..., damit du lernst.</span></td></tr>
+    <tr><td class="highlight">bevor</td><td>before</td><td class="ex"><span>..., bevor ich schlafe.</span></td></tr>
+    <tr><td class="highlight">nachdem</td><td>after</td><td class="ex"><span>..., nachdem er gegessen hat.</span></td></tr>
+    <tr><td class="highlight">während</td><td>while / during</td><td class="ex"><span>..., während sie arbeitet.</span></td></tr>
+    <tr><td class="highlight">bis</td><td>until</td><td class="ex"><span>..., bis er kommt.</span></td></tr>
+    <tr><td class="highlight">seitdem</td><td>since (then)</td><td class="ex"><span>..., seitdem ich hier bin.</span></td></tr>
+    <tr><td class="highlight">falls</td><td>in case / if</td><td class="ex"><span>..., falls es klappt.</span></td></tr>
+    <tr><td class="highlight">sodass</td><td>so that (result)</td><td class="ex"><span>..., sodass ich verstehe.</span></td></tr>
+  </table>
+  <div class="note">⚠️ All subconj send the <strong>conjugated verb to the end</strong> of the clause.</div>
 </div>
 
 <!-- ARTICLES -->
@@ -267,7 +263,10 @@ td:first-child{color:var(--muted);font-size:11px}
     <tr><td>ich</td><td class="highlight">meinen</td><td>mein</td><td>meine</td></tr>
     <tr><td>du</td><td class="highlight">deinen</td><td>dein</td><td>deine</td></tr>
     <tr><td>er/es</td><td class="highlight">seinen</td><td>sein</td><td>seine</td></tr>
-    <tr><td>sie</td><td class="highlight">ihren</td><td>ihr</td><td>ihre</td></tr>
+    <tr><td>sie (her)</td><td class="highlight">ihren</td><td>ihr</td><td>ihre</td></tr>
+    <tr><td>wir</td><td class="highlight">unseren</td><td>unser</td><td>unsere</td></tr>
+    <tr><td>ihr (you pl)</td><td class="highlight">euren</td><td>euer</td><td>eure</td></tr>
+    <tr><td>sie/Sie</td><td class="highlight">ihren/Ihren</td><td>ihr/Ihr</td><td>ihre/Ihre</td></tr>
   </table>
   <h3>Dative</h3>
   <table>
@@ -275,12 +274,30 @@ td:first-child{color:var(--muted);font-size:11px}
     <tr><td>ich</td><td>meinem</td><td>meiner</td><td>meinen</td></tr>
     <tr><td>du</td><td>deinem</td><td>deiner</td><td>deinen</td></tr>
     <tr><td>er/es</td><td>seinem</td><td>seiner</td><td>seinen</td></tr>
-    <tr><td>sie</td><td>ihrem</td><td>ihrer</td><td>ihren</td></tr>
+    <tr><td>sie (her)</td><td>ihrem</td><td>ihrer</td><td>ihren</td></tr>
+    <tr><td>wir</td><td>unserem</td><td>unserer</td><td>unseren</td></tr>
+    <tr><td>ihr (you pl)</td><td>eurem</td><td>eurer</td><td>euren</td></tr>
+    <tr><td>sie/Sie</td><td>ihrem/Ihrem</td><td>ihrer/Ihrer</td><td>ihren/Ihren</td></tr>
   </table>
 </div>
 
 <!-- PRONOUNS -->
 <div id="pronouns" class="section">
+  <div class="note" style="margin-bottom:10px">
+    <strong style="color:var(--coral)">Accusative (AKK)</strong> = direct object — <em>I see him</em><br>
+    <strong style="color:var(--teal)">Dative (DAT)</strong> = indirect object — <em>to me / for me</em>
+  </div>
+
+  <div class="rule-box" style="margin-bottom:10px">
+    <h3 style="color:var(--gold)">mir vs mich</h3>
+    <table style="margin-top:6px">
+      <tr><th style="color:var(--teal)">mir (DAT)</th><th style="color:var(--coral)">mich (AKK)</th></tr>
+      <tr><td>indirect object / followed by a noun</td><td>direct object / no noun after</td></tr>
+      <tr><td class="ex"><span>Es geht mir gut.</span> — I'm doing well.</td><td class="ex"><span>Ich wasche mich.</span> — I wash myself.</td></tr>
+      <tr><td class="ex"><span>Er gibt mir das Buch.</span> — He gives me the book.</td><td class="ex"><span>Er sieht mich.</span> — He sees me.</td></tr>
+    </table>
+  </div>
+
   <h2>Personal Pronouns</h2>
   <table>
     <tr><th></th><th>NOM</th><th>AKK</th><th>DAT</th></tr>
@@ -295,32 +312,26 @@ td:first-child{color:var(--muted);font-size:11px}
     <tr><td>You (formal)</td><td>Sie</td><td>Sie</td><td>Ihnen</td></tr>
   </table>
 
-  <div class="rule-box" style="margin-top:10px">
-    <h3 style="color:var(--gold)">mir vs mich</h3>
-    <p style="font-size:12px;line-height:1.6">
-      <span style="color:var(--teal)">MIR (Dative)</span> — followed by an object/body part<br>
-      <span style="color:var(--coral)">MICH (Accusative)</span> — no object after
-    </p>
-    <div class="ex" style="margin-top:4px">Es geht <span>mir</span> gut. / Ich sehe <span>mich</span>.</div>
-  </div>
-
   <h2>Possessive Pronouns</h2>
-  <div class="pill-row">
-    <div class="pill">mein — my</div>
-    <div class="pill">dein — your</div>
-    <div class="pill">sein — his/its</div>
-    <div class="pill">ihr — her/their</div>
-    <div class="pill">unser — our</div>
-    <div class="pill">euer — your (pl)</div>
-    <div class="pill">Ihr — formal your</div>
-  </div>
+  <table>
+    <tr><th>Person</th><th>Pronoun</th><th>Meaning</th></tr>
+    <tr><td>ich</td><td class="highlight">mein</td><td>my</td></tr>
+    <tr><td>du</td><td class="highlight">dein</td><td>your</td></tr>
+    <tr><td>er/es</td><td class="highlight">sein</td><td>his / its</td></tr>
+    <tr><td>sie (her)</td><td class="highlight">ihr</td><td>her</td></tr>
+    <tr><td>wir</td><td class="highlight">unser</td><td>our</td></tr>
+    <tr><td>ihr (you pl)</td><td class="highlight">euer</td><td>your (plural)</td></tr>
+    <tr><td>sie (they)</td><td class="highlight">ihr</td><td>their</td></tr>
+    <tr><td>Sie (formal)</td><td class="highlight">Ihr</td><td>your (formal)</td></tr>
+  </table>
+  <div class="note">These decline like <strong>ein/eine</strong> — add endings based on case &amp; gender of the noun they describe.</div>
 </div>
 
 <!-- VERBS -->
 <div id="verbs" class="section">
   <h2>Haben & Sein</h2>
   <table>
-    <tr><th>Pronoun</th><th>haben</th><th>sein</th></tr>
+    <tr><th>Pronoun</th><th>haben <span style="color:var(--muted);font-weight:400;font-size:10px">— static / action</span></th><th>sein <span style="color:var(--muted);font-weight:400;font-size:10px">— movement / state</span></th></tr>
     <tr><td>ich</td><td>habe</td><td>bin</td></tr>
     <tr><td>du</td><td>hast</td><td>bist</td></tr>
     <tr><td>er/sie/es</td><td>hat</td><td>ist</td></tr>
@@ -328,6 +339,18 @@ td:first-child{color:var(--muted);font-size:11px}
     <tr><td>ihr</td><td>habt</td><td>seid</td></tr>
     <tr><td>sie/Sie</td><td>haben</td><td>sind</td></tr>
   </table>
+
+  <h2>Auxiliary Verbs</h2>
+  <table>
+    <tr><th>Pronoun</th><th>werden <span style="color:var(--muted);font-weight:400;font-size:10px">become/will</span></th><th>hatte <span style="color:var(--muted);font-weight:400;font-size:10px">had (past)</span></th><th>musste <span style="color:var(--muted);font-weight:400;font-size:10px">had to (past)</span></th><th>konnte <span style="color:var(--muted);font-weight:400;font-size:10px">was able (past)</span></th></tr>
+    <tr><td>ich</td><td class="highlight">werde</td><td class="highlight">hatte</td><td class="highlight">musste</td><td class="highlight">konnte</td></tr>
+    <tr><td>du</td><td class="highlight">wirst</td><td>hattest</td><td>musstest</td><td>konntest</td></tr>
+    <tr><td>er/sie/es</td><td class="highlight">wird</td><td class="highlight">hatte</td><td class="highlight">musste</td><td class="highlight">konnte</td></tr>
+    <tr><td>wir</td><td>werden</td><td>hatten</td><td>mussten</td><td>konnten</td></tr>
+    <tr><td>ihr</td><td>werdet</td><td>hattet</td><td>musstet</td><td>konntet</td></tr>
+    <tr><td>sie/Sie</td><td>werden</td><td>hatten</td><td>mussten</td><td>konnten</td></tr>
+  </table>
+  <div class="note"><strong>werden:</strong> main verb = to become &nbsp;|&nbsp; auxiliary = future tense (will)</div>
 
   <h2>Modal Verbs</h2>
   <table>
@@ -355,11 +378,16 @@ td:first-child{color:var(--muted);font-size:11px}
 <!-- PREPOSITIONS -->
 <div id="prepositions" class="section">
 
+  <div class="note" style="margin-bottom:10px">
+    <strong style="color:var(--coral)">Accusative</strong> = direct object / movement / direction &nbsp;|&nbsp;
+    <strong style="color:var(--teal)">Dative</strong> = indirect object / to me / static location
+  </div>
+
   <h2>Always Dative</h2>
   <div class="pill-row">
-    <div class="pill dat">bei</div><div class="pill dat">mit</div><div class="pill dat">zu</div>
-    <div class="pill dat">von</div><div class="pill dat">nach</div><div class="pill dat">seit</div>
-    <div class="pill dat">aus</div><div class="pill dat">gegenüber</div>
+    <div class="pill dat">aus</div><div class="pill dat">außer</div><div class="pill dat">bei</div>
+    <div class="pill dat">gegenüber</div><div class="pill dat">mit</div><div class="pill dat">nach</div>
+    <div class="pill dat">seit</div><div class="pill dat">von</div><div class="pill dat">zu</div>
   </div>
 
   <h2>Accusative Only</h2>
@@ -367,6 +395,20 @@ td:first-child{color:var(--muted);font-size:11px}
     <div class="pill acc">durch</div><div class="pill acc">für</div><div class="pill acc">gegen</div>
     <div class="pill acc">ohne</div><div class="pill acc">um</div><div class="pill acc">bis</div>
   </div>
+
+  <h2>Two-Way Prepositions (Accusative = movement / Dative = static)</h2>
+  <div class="pill-row">
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">in</div>
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">an</div>
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">auf</div>
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">über</div>
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">unter</div>
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">vor</div>
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">hinter</div>
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">neben</div>
+    <div class="pill" style="border-color:var(--gold);color:var(--gold)">zwischen</div>
+  </div>
+  <div class="note">🏃 Movement → <strong style="color:var(--coral)">Accusative</strong> (Wohin? Where to?) &nbsp;|&nbsp; 📍 Static → <strong style="color:var(--teal)">Dative</strong> (Wo? Where?)</div>
 
   <h2>Static vs Movement</h2>
   <table>
@@ -471,7 +513,7 @@ td:first-child{color:var(--muted);font-size:11px}
   </div>
 
   <div class="neg-rule" style="margin-top:10px">
-    <span class="keyword" style="color:var(--teal)">nicht</span>
+    <span class="keyword" style="color:var(--teal);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">nicht</span>
     <p style="font-size:13px;color:var(--muted);margin-bottom:10px">Negates everything else:</p>
 
     <div style="display:flex;flex-direction:column;gap:10px">
@@ -523,6 +565,44 @@ td:first-child{color:var(--muted);font-size:11px}
     <div class="pill">-ment</div><div class="pill">-o</div><div class="pill">-um</div>
   </div>
   <div class="note">Also: young people, hotels & cinemas, metals, year, colors</div>
+</div>
+
+<!-- SEPARABLE VERBS -->
+<div id="separable" class="section">
+  <div class="note" style="margin-bottom:10px">
+    The prefix <strong style="color:var(--gold)">splits off</strong> and goes to the <strong style="color:var(--gold)">end</strong> of the main clause.<br>
+    <span class="ex" style="font-style:normal">Ich <strong style="color:var(--coral)">rufe</strong> dich <strong style="color:var(--coral)">an</strong>. — I call you.</span>
+  </div>
+
+  <h2>Goethe A1 Separable Verbs</h2>
+  <table>
+    <tr><th>Infinitive</th><th>English</th><th>Example (ich form)</th></tr>
+    <tr><td class="highlight">an·rufen</td><td>to call (phone)</td><td class="ex"><span>Ich rufe dich an.</span></td></tr>
+    <tr><td class="highlight">an·fangen</td><td>to begin / start</td><td class="ex"><span>Ich fange jetzt an.</span></td></tr>
+    <tr><td class="highlight">an·kommen</td><td>to arrive</td><td class="ex"><span>Ich komme um 8 an.</span></td></tr>
+    <tr><td class="highlight">an·machen</td><td>to turn on</td><td class="ex"><span>Ich mache das Licht an.</span></td></tr>
+    <tr><td class="highlight">an·ziehen</td><td>to put on (clothes)</td><td class="ex"><span>Ich ziehe mich an.</span></td></tr>
+    <tr><td class="highlight">auf·machen</td><td>to open</td><td class="ex"><span>Ich mache die Tür auf.</span></td></tr>
+    <tr><td class="highlight">auf·räumen</td><td>to tidy up</td><td class="ex"><span>Ich räume mein Zimmer auf.</span></td></tr>
+    <tr><td class="highlight">auf·stehen</td><td>to get up / stand up</td><td class="ex"><span>Ich stehe um 7 auf.</span></td></tr>
+    <tr><td class="highlight">aus·gehen</td><td>to go out</td><td class="ex"><span>Ich gehe heute Abend aus.</span></td></tr>
+    <tr><td class="highlight">aus·machen</td><td>to turn off</td><td class="ex"><span>Ich mache den Fernseher aus.</span></td></tr>
+    <tr><td class="highlight">aus·ziehen</td><td>to take off (clothes) / move out</td><td class="ex"><span>Ich ziehe mich aus.</span></td></tr>
+    <tr><td class="highlight">ein·kaufen</td><td>to shop / go shopping</td><td class="ex"><span>Ich kaufe im Supermarkt ein.</span></td></tr>
+    <tr><td class="highlight">ein·laden</td><td>to invite</td><td class="ex"><span>Ich lade dich ein.</span></td></tr>
+    <tr><td class="highlight">ein·schlafen</td><td>to fall asleep</td><td class="ex"><span>Ich schlafe früh ein.</span></td></tr>
+    <tr><td class="highlight">fern·sehen</td><td>to watch TV</td><td class="ex"><span>Ich sehe abends fern.</span></td></tr>
+    <tr><td class="highlight">mit·bringen</td><td>to bring along</td><td class="ex"><span>Ich bringe Kuchen mit.</span></td></tr>
+    <tr><td class="highlight">mit·kommen</td><td>to come along</td><td class="ex"><span>Ich komme mit.</span></td></tr>
+    <tr><td class="highlight">mit·nehmen</td><td>to take along</td><td class="ex"><span>Ich nehme das mit.</span></td></tr>
+    <tr><td class="highlight">vor·haben</td><td>to plan / intend</td><td class="ex"><span>Ich habe viel vor.</span></td></tr>
+    <tr><td class="highlight">vor·stellen</td><td>to introduce</td><td class="ex"><span>Ich stelle mich vor.</span></td></tr>
+    <tr><td class="highlight">weiter·machen</td><td>to continue / keep going</td><td class="ex"><span>Ich mache weiter.</span></td></tr>
+    <tr><td class="highlight">zurück·kommen</td><td>to come back / return</td><td class="ex"><span>Ich komme morgen zurück.</span></td></tr>
+    <tr><td class="highlight">zu·machen</td><td>to close</td><td class="ex"><span>Ich mache die Tür zu.</span></td></tr>
+    <tr><td class="highlight">ab·fahren</td><td>to depart / leave (vehicle)</td><td class="ex"><span>Der Zug fährt ab.</span></td></tr>
+    <tr><td class="highlight">ab·holen</td><td>to pick up (person/thing)</td><td class="ex"><span>Ich hole dich ab.</span></td></tr>
+  </table>
 </div>
 
 <script>
