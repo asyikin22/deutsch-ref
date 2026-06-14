@@ -2,7 +2,7 @@
   "name": "German Grammar Quick Ref",
   "short_name": "Deutsch",
   "description": "German grammar cheat sheet for quick reference",
-  "start_url": "/",
+  "start_url":  "/deutsch-ref/",
   "display": "standalone",
   "background_color": "#0f0f0f",
   "theme_color": "#0f0f0f",
