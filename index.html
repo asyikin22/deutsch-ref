@@ -93,6 +93,7 @@ td:first-child{color:var(--muted);font-size:11px}
   <button class="tab" onclick="show('prepositions')">Prepositions</button>
   <button class="tab" onclick="show('pronouns')">Pronouns</button>
   <button class="tab" onclick="show('verbs')">Verbs</button>
+  <button class="tab" onclick="show('reflexive')">Reflexive</button>
   <button class="tab" onclick="show('wordorder')">Word Order</button>
   <button class="tab" onclick="show('questions')">Questions</button>
   <button class="tab" onclick="show('negation')">Negation</button>
@@ -314,10 +315,10 @@ td:first-child{color:var(--muted);font-size:11px}
   <div class="rule-box" style="margin-bottom:10px">
     <h3 style="color:var(--gold)">mir vs mich</h3>
     <table style="margin-top:6px">
-      <tr><th style="color:var(--teal)">mir (DAT)</th><th style="color:var(--coral)">mich (AKK)</th></tr>
-      <tr><td>indirect object / followed by a noun</td><td>direct object / no noun after</td></tr>
-      <tr><td class="ex"><span>Es geht mir gut.</span> — I'm doing well.</td><td class="ex"><span>Ich wasche mich.</span> — I wash myself.</td></tr>
-      <tr><td class="ex"><span>Er gibt mir das Buch.</span> — He gives me the book.</td><td class="ex"><span>Er sieht mich.</span> — He sees me.</td></tr>
+      <tr><th style="color:var(--coral)">mich (AKK)</th><th style="color:var(--teal)">mir (DAT)</th></tr>
+      <tr><td>direct object / no noun after</td><td>indirect object / followed by a noun</td></tr>
+      <tr><td class="ex"><span>Ich wasche mich.</span> — I wash myself.</td><td class="ex"><span>Es geht mir gut.</span> — I'm doing well.</td></tr>
+      <tr><td class="ex"><span>Er sieht mich.</span> — He sees me.</td><td class="ex"><span>Er gibt mir das Buch.</span> — He gives me the book.</td></tr>
     </table>
   </div>
 
@@ -337,15 +338,15 @@ td:first-child{color:var(--muted);font-size:11px}
 
   <h2>Possessive Pronouns</h2>
   <table>
-    <tr><th>Person</th><th>Pronoun</th><th>Meaning</th></tr>
-    <tr><td>ich</td><td class="highlight">mein</td><td>my</td></tr>
-    <tr><td>du</td><td class="highlight">dein</td><td>your</td></tr>
-    <tr><td>er/es</td><td class="highlight">sein</td><td>his / its</td></tr>
-    <tr><td>sie (her)</td><td class="highlight">ihr</td><td>her</td></tr>
-    <tr><td>wir</td><td class="highlight">unser</td><td>our</td></tr>
-    <tr><td>ihr (you pl)</td><td class="highlight">euer</td><td>your (plural)</td></tr>
-    <tr><td>sie (they)</td><td class="highlight">ihr</td><td>their</td></tr>
-    <tr><td>Sie (formal)</td><td class="highlight">Ihr</td><td>your (formal)</td></tr>
+    <tr><th>Person</th><th>Meaning</th><th>Pronoun</th></tr>
+    <tr><td>ich</td><td>my</td><td class="highlight">mein</td></tr>
+    <tr><td>du</td><td>your</td><td class="highlight">dein</td></tr>
+    <tr><td>er/es</td><td>his / its</td><td class="highlight">sein</td></tr>
+    <tr><td>sie (her)</td><td>her</td><td class="highlight">ihr</td></tr>
+    <tr><td>wir</td><td>our</td><td class="highlight">unser</td></tr>
+    <tr><td>ihr (you pl)</td><td>your (plural)</td><td class="highlight">euer</td></tr>
+    <tr><td>sie (they)</td><td>their</td><td class="highlight">ihr</td></tr>
+    <tr><td>Sie (formal)</td><td>your (formal)</td><td class="highlight">Ihr</td></tr>
   </table>
   <div class="note">These decline like <strong>ein/eine</strong> — add endings based on case &amp; gender of the noun they describe.</div>
 </div>
@@ -653,6 +654,49 @@ td:first-child{color:var(--muted);font-size:11px}
     <tr><td class="highlight">zu·machen</td><td>to close</td><td class="ex"><span>Ich mache die Tür zu.</span></td></tr>
     <tr><td class="highlight">ab·fahren</td><td>to depart / leave (vehicle)</td><td class="ex"><span>Der Zug fährt ab.</span></td></tr>
     <tr><td class="highlight">ab·holen</td><td>to pick up (person/thing)</td><td class="ex"><span>Ich hole dich ab.</span></td></tr>
+  </table>
+</div>
+
+<!-- REFLEXIVE VERBS -->
+<div id="reflexive" class="section">
+  <div class="note" style="margin-bottom:10px">
+    Subject does action <strong>to itself</strong>.<br>
+    S + V + <strong style="color:var(--gold)">sich</strong> (or matching pronoun)
+  </div>
+  
+  <div class="rule-box" style="margin-bottom:10px">
+    <table>
+      <tr><th>Type</th><th>Formula</th><th>Example</th></tr>
+      <tr><td>Statement</td><td>S + V + <span class="highlight">Refl</span></td><td class="ex"><span>Ich wasche mich.</span></td></tr>
+      <tr><td>Question</td><td>V + S + <span class="highlight">Refl</span></td><td class="ex"><span>Waschst du dich?</span></td></tr>
+    </table>
+    <div class="note" style="margin-top:8px">⚠️ In subclauses, reflexive pronoun comes just before the verb at the end.<br>
+    <span class="ex"><span>..., weil ich mich jeden Tag wasche.</span></span></div>
+  </div>
+
+  <h2>Reflexive Pronouns</h2>
+  <table>
+    <tr><th></th><th>NOM</th><th>AKK</th><th>DAT</th><th style="color:var(--gold)">Reflexiv</th></tr>
+    <tr><td>I</td><td>ich</td><td>mich</td><td>mir</td><td>mich</td></tr>
+    <tr><td>you</td><td>du</td><td>dich</td><td>dir</td><td>dich</td></tr>
+    <tr><td>he/she/it</td><td>er/sie/es</td><td>ihn/sie/es</td><td>ihm/ihr/ihm</td><td class="highlight">sich ✦</td></tr>
+    <tr><td>we</td><td>wir</td><td>uns</td><td>uns</td><td>uns</td></tr>
+    <tr><td>you (pl)</td><td>ihr</td><td>euch</td><td>euch</td><td>euch</td></tr>
+    <tr><td>they/Sie</td><td>sie/Sie</td><td>sie/Sie</td><td>ihnen/Ihnen</td><td class="highlight">sich ✦</td></tr>
+  </table>
+  <div class="note">✦ Only <strong>er/sie/es</strong> and <strong>they/Sie</strong> change to <em>sich</em> — all others same as AKK/DAT</div>
+
+  <h2>Common Reflexive Verbs</h2>
+  <table>
+    <tr><th>Verb</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td class="highlight">sich waschen</td><td>to wash oneself</td><td class="ex"><span>Ich wasche mich.</span></td></tr>
+    <tr><td class="highlight">sich anziehen</td><td>to get dressed</td><td class="ex"><span>Ich ziehe mich an.</span></td></tr>
+    <tr><td class="highlight">sich ausziehen</td><td>to get undressed</td><td class="ex"><span>Ich ziehe mich aus.</span></td></tr>
+    <tr><td class="highlight">sich setzen</td><td>to sit down</td><td class="ex"><span>Ich setze mich.</span></td></tr>
+    <tr><td class="highlight">sich freuen</td><td>to be happy/look forward</td><td class="ex"><span>Er freut sich.</span></td></tr>
+    <tr><td class="highlight">sich vorstellen</td><td>to introduce oneself</td><td class="ex"><span>Ich stelle mich vor.</span></td></tr>
+    <tr><td class="highlight">sich fuhlen</td><td>to feel</td><td class="ex"><span>Sie fuhlt sich gut.</span></td></tr>
+    <tr><td class="highlight">sich erinnern</td><td>to remember</td><td class="ex"><span>Ich erinnere mich.</span></td></tr>
   </table>
 </div>
 
