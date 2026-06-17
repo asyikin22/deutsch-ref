@@ -174,8 +174,8 @@ td:first-child{color:var(--muted);font-size:11px}
 
 <!-- WORD ORDER -->
 <div id="wordorder" class="section">
+
   <h2>TeKaMoLo</h2>
-  <div class="note">Adverbs go in this order after the verb.</div>
   <table>
     <tr>
       <th style="color:var(--gold)">Te — When?</th>
@@ -183,74 +183,55 @@ td:first-child{color:var(--muted);font-size:11px}
       <th style="color:var(--purple)">Mo — How?</th>
       <th style="color:var(--coral)">Lo — Where?</th>
     </tr>
-    <tr>
-      <td style="color:var(--gold)">Temporal</td>
-      <td style="color:var(--teal)">Kausal</td>
-      <td style="color:var(--purple)">Modal</td>
-      <td style="color:var(--coral)">Lokal</td>
-    </tr>
     <tr><td>heute</td><td>wegen Arbeit</td><td>schnell</td><td>nach Berlin</td></tr>
   </table>
   <div class="ex" style="margin:6px 0">Ich fahre <span style="color:var(--gold)">morgen</span> <span style="color:var(--purple)">mit dem Zug</span> <span style="color:var(--coral)">nach Berlin</span>.</div>
 
-  <h2>Main Clause</h2>
-  <div class="rule-box">
-    <p style="font-size:12px;line-height:1.8"><strong>S + V</strong> (position 2) <strong>+ everything else</strong><br>
-    Verb is always position 2, no matter what comes first.</p>
-    <div class="ex" style="margin-top:6px">Heute <span>fahre</span> ich nach Berlin. ✓<br>Heute <span>ich fahre</span> nach Berlin. ✗</div>
-  </div>
-
-  <h2>Subordinate Clause</h2>
-  <div class="rule-box">
-    <p style="font-size:12px;line-height:1.8"><strong style="background:#2a1a00;color:var(--gold);padding:2px 6px;border-radius:4px;font-size:13px">subconj</strong> + S + (DAT obj) + (AKK obj) + ... + <strong style="color:var(--gold)">verb at end</strong></p>
-    <div class="ex" style="margin-top:6px">..., <span style="color:var(--gold)">weil</span> ich müde <span>bin</span>.<br>..., <span style="color:var(--gold)">dass</span> er das Buch lesen <span>will</span>.</div>
-  </div>
-
-  <h2>Non-Subject First (Inversion)</h2>
-  <div class="rule-box">
-    <p style="font-size:12px;line-height:1.8">When anything other than the subject starts the clause, <strong style="color:var(--gold)">verb stays position 2</strong> and subject flips after it.</p>
-    <table style="margin-top:6px">
-      <tr><th>Position 1</th><th style="color:var(--gold)">V (pos 2)</th><th>Subject</th><th>Rest</th></tr>
-      <tr><td style="color:var(--gold)">Heute</td><td>fahre</td><td>ich</td><td>nach Berlin.</td></tr>
-      <tr><td style="color:var(--gold)">Um 8 Uhr</td><td>kommt</td><td>er</td><td>an.</td></tr>
-      <tr><td style="color:var(--gold)">Wegen der Arbeit</td><td>bleibt</td><td>sie</td><td>zu Hause.</td></tr>
-    </table>
-    <div class="note" style="margin-top:8px">⚠️ The verb <strong>never</strong> moves — only subject and position-1 element swap.</div>
-  </div>
-  
-  <h2>Subclause + Perfekt → Inverted Main Clause</h2>
-  <div class="rule-box">
-    <p style="font-size:12px;line-height:1.8">
-      <span style="color:var(--purple)">subconj</span> + S + ... + <strong style="color:var(--gold)">Partizip II + aux</strong>, <strong style="color:var(--coral)">V + S</strong> + rest
-    </p>
-    <div class="ex" style="margin-top:8px;line-height:2">
-      <span style="color:var(--purple)">Als</span> ich jung war, <strong style="color:var(--coral)">habe</strong> ich nie Glühwein <strong style="color:var(--gold)">getrunken</strong>.<br>
-      <span style="color:var(--muted);font-size:11px">When I was young, I never drank Glühwein.</span><br><br>
-      <span style="color:var(--purple)">Nachdem</span> sie gegessen <strong style="color:var(--gold)">hatte</strong>, <strong style="color:var(--coral)">ging</strong> sie schlafen.<br>
-      <span style="color:var(--muted);font-size:11px">After she had eaten, she went to sleep.</span>
-    </div>
-    <div class="note" style="margin-top:8px">The subclause counts as position 1 → main clause verb comes <strong>immediately after the comma</strong>.</div>
-  </div>
+  <h2>Clause Patterns</h2>
+  <table>
+    <tr><th>Type</th><th>Pattern</th><th>Example</th></tr>
+    <tr>
+      <td>Normal</td>
+      <td style="color:var(--muted);font-size:11px">S + <span style="color:var(--gold)">V</span> + rest</td>
+      <td class="ex"><span>Ich fahre nach Berlin.</span></td>
+    </tr>
+    <tr>
+      <td>Inversion</td>
+      <td style="color:var(--muted);font-size:11px">X + <span style="color:var(--gold)">V</span> + S + rest</td>
+      <td class="ex"><span style="color:var(--gold)">Heute</span> fahre ich nach Berlin.</td>
+    </tr>
+    <tr>
+      <td>Subclause</td>
+      <td style="color:var(--muted);font-size:11px"><span style="color:var(--purple)">conj</span> + S + rest + <span style="color:var(--gold)">V</span></td>
+      <td class="ex">..., <span style="color:var(--purple)">weil</span> ich müde <span>bin</span>.</td>
+    </tr>
+    <tr>
+      <td>Subclause first</td>
+      <td style="color:var(--muted);font-size:11px">[subclause], <span style="color:var(--gold)">V</span> + S + rest</td>
+      <td class="ex"><span style="color:var(--purple)">Als</span> ich jung war, <span>habe</span> ich nie Glühwein <span>getrunken</span>.</td>
+    </tr>
+  </table>
+  <div class="note">⚠️ <strong>V is always position 2</strong> — in subclauses it goes to the end.</div>
 
   <h2>Subordinating Conjunctions</h2>
   <table>
     <tr><th>Subconj</th><th>Meaning</th><th>Example</th></tr>
     <tr><td class="highlight">weil</td><td>because</td><td class="ex"><span>..., weil ich müde bin.</span></td></tr>
     <tr><td class="highlight">dass</td><td>that</td><td class="ex"><span>Ich weiß, dass er kommt.</span></td></tr>
-    <tr><td class="highlight">wenn</td><td>when / if (conditional)</td><td class="ex"><span>..., wenn es regnet.</span></td></tr>
-    <tr><td class="highlight">als</td><td>when (past, one-time)</td><td class="ex"><span>..., als ich jung war.</span></td></tr>
-    <tr><td class="highlight">ob</td><td>whether / if (indirect Q)</td><td class="ex"><span>Ich frage, ob er kommt.</span></td></tr>
-    <tr><td class="highlight">obwohl</td><td>although / even though</td><td class="ex"><span>..., obwohl es kalt ist.</span></td></tr>
+    <tr><td class="highlight">wenn</td><td>when / if</td><td class="ex"><span>..., wenn es regnet.</span></td></tr>
+    <tr><td class="highlight">als</td><td>when (past)</td><td class="ex"><span>..., als ich jung war.</span></td></tr>
+    <tr><td class="highlight">ob</td><td>whether</td><td class="ex"><span>Ich frage, ob er kommt.</span></td></tr>
+    <tr><td class="highlight">obwohl</td><td>although</td><td class="ex"><span>..., obwohl es kalt ist.</span></td></tr>
     <tr><td class="highlight">damit</td><td>so that</td><td class="ex"><span>..., damit du lernst.</span></td></tr>
     <tr><td class="highlight">bevor</td><td>before</td><td class="ex"><span>..., bevor ich schlafe.</span></td></tr>
     <tr><td class="highlight">nachdem</td><td>after</td><td class="ex"><span>..., nachdem er gegessen hat.</span></td></tr>
-    <tr><td class="highlight">während</td><td>while / during</td><td class="ex"><span>..., während sie arbeitet.</span></td></tr>
+    <tr><td class="highlight">während</td><td>while</td><td class="ex"><span>..., während sie arbeitet.</span></td></tr>
     <tr><td class="highlight">bis</td><td>until</td><td class="ex"><span>..., bis er kommt.</span></td></tr>
-    <tr><td class="highlight">seitdem</td><td>since (then)</td><td class="ex"><span>..., seitdem ich hier bin.</span></td></tr>
+    <tr><td class="highlight">seitdem</td><td>since</td><td class="ex"><span>..., seitdem ich hier bin.</span></td></tr>
     <tr><td class="highlight">falls</td><td>in case / if</td><td class="ex"><span>..., falls es klappt.</span></td></tr>
     <tr><td class="highlight">sodass</td><td>so that (result)</td><td class="ex"><span>..., sodass ich verstehe.</span></td></tr>
   </table>
-  <div class="note">⚠️ All subconj send the <strong>conjugated verb to the end</strong> of the clause.</div>
+
 </div>
 
 <!-- ARTICLES -->
