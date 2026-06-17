@@ -225,6 +225,32 @@ td:first-child{color:var(--muted);font-size:11px}
     <tr><td class="highlight">sodass</td><td>so that (result)</td><td class="ex"><span>..., sodass ich verstehe.</span></td></tr>
   </table>
   <div class="note">⚠️ All subconj send the <strong>conjugated verb to the end</strong> of the clause.</div>
+
+  <h2>Non-Subject First (Inversion)</h2>
+  <div class="rule-box">
+    <p style="font-size:12px;line-height:1.8">When anything other than the subject starts the clause, <strong style="color:var(--gold)">verb stays position 2</strong> and subject flips after it.</p>
+    <table style="margin-top:6px">
+      <tr><th>Position 1</th><th style="color:var(--gold)">V (pos 2)</th><th>Subject</th><th>Rest</th></tr>
+      <tr><td style="color:var(--gold)">Heute</td><td>fahre</td><td>ich</td><td>nach Berlin.</td></tr>
+      <tr><td style="color:var(--gold)">Um 8 Uhr</td><td>kommt</td><td>er</td><td>an.</td></tr>
+      <tr><td style="color:var(--gold)">Wegen der Arbeit</td><td>bleibt</td><td>sie</td><td>zu Hause.</td></tr>
+    </table>
+    <div class="note" style="margin-top:8px">⚠️ The verb <strong>never</strong> moves — only subject and position-1 element swap.</div>
+  </div>
+  
+  <h2>Subclause + Perfekt → Inverted Main Clause</h2>
+  <div class="rule-box">
+    <p style="font-size:12px;line-height:1.8">
+      <span style="color:var(--purple)">subconj</span> + S + ... + <strong style="color:var(--gold)">Partizip II + aux</strong>, <strong style="color:var(--coral)">V + S</strong> + rest
+    </p>
+    <div class="ex" style="margin-top:8px;line-height:2">
+      <span style="color:var(--purple)">Als</span> ich jung war, <strong style="color:var(--coral)">habe</strong> ich nie Glühwein <strong style="color:var(--gold)">getrunken</strong>.<br>
+      <span style="color:var(--muted);font-size:11px">When I was young, I never drank Glühwein.</span><br><br>
+      <span style="color:var(--purple)">Nachdem</span> sie gegessen <strong style="color:var(--gold)">hatte</strong>, <strong style="color:var(--coral)">ging</strong> sie schlafen.<br>
+      <span style="color:var(--muted);font-size:11px">After she had eaten, she went to sleep.</span>
+    </div>
+    <div class="note" style="margin-top:8px">The subclause counts as position 1 → main clause verb comes <strong>immediately after the comma</strong>.</div>
+  </div>
 </div>
 
 <!-- ARTICLES -->
@@ -349,6 +375,21 @@ td:first-child{color:var(--muted);font-size:11px}
     <tr><td style="padding:3px 6px">Sie (formal)</td><td style="padding:3px 6px">your (formal)</td><td style="padding:3px 6px" class="highlight">Ihr</td></tr>
   </table>
   <div class="note">These decline like <strong>ein/eine</strong> — add endings based on case &amp; gender of the noun they describe.</div>
+
+  <h2>Indefinite Pronouns</h2>
+  <p style="font-size:11px;color:var(--muted);margin-bottom:6px">everybody / everything / everywhere — decline like <strong>dieser</strong></p>
+  <table>
+    <tr><th>Case</th><th style="color:var(--blue)">jeder <span style="color:var(--muted);font-weight:400">(everyone)</span></th><th style="color:var(--teal)">alles <span style="color:var(--muted);font-weight:400">(everything)</span></th><th style="color:var(--gold)">überall <span style="color:var(--muted);font-weight:400">(everywhere)</span></th></tr>
+    <tr><td><span class="tag nom">NOM</span></td><td>jeder / jede / jedes</td><td rowspan="4" style="vertical-align:middle;text-align:center;color:var(--teal)">alles<br><span style="font-size:10px;color:var(--muted)">always same<br>(neut sg only)</span></td><td rowspan="4" style="vertical-align:middle;text-align:center;color:var(--gold)">überall<br><span style="font-size:10px;color:var(--muted)">adverb,<br>no declension</span></td></tr>
+    <tr><td><span class="tag acc">AKK</span></td><td>jeden / jede / jedes</td></tr>
+    <tr><td><span class="tag dat">DAT</span></td><td>jedem / jeder / jedem</td></tr>
+    <tr><td><span class="tag gen">GEN</span></td><td>jedes / jeder / jedes</td></tr>
+  </table>
+  <div class="note" style="margin-top:6px">
+    <strong>jemand</strong> (someone) → AKK: <strong>jemanden</strong> &nbsp;|&nbsp; DAT: <strong>jemandem</strong><br>
+    <strong>niemand</strong> (no one) → AKK: <strong>niemanden</strong> &nbsp;|&nbsp; DAT: <strong>niemandem</strong><br>
+    <strong>etwas</strong> (something) / <strong>nichts</strong> (nothing) — never decline
+  </div>
 </div>
 
 <!-- VERBS -->
@@ -372,6 +413,35 @@ td:first-child{color:var(--muted);font-size:11px}
     </div>
     <div class="ex" style="margin-top:6px">Ich gebe <span style="color:var(--teal)">dir</span> <span style="color:var(--coral)">das Buch</span>. — I give you the book.</div>
   </div>
+
+  <h2>Impersonal Verbs</h2>
+  <div class="note">Subject is <strong>es</strong> or omitted — the person is in <strong style="color:var(--teal)">Dative (mir/dir/ihm...)</strong></div>
+  
+  <h3 style="color:var(--coral)">Physical Sensations</h3>
+  <table>
+    <tr><th>German</th><th>Literal</th><th>English</th></tr>
+    <tr><td class="highlight">Mir ist warm/kalt</td><td>to-me is warm/cold</td><td>I'm warm / cold</td></tr>
+    <tr><td class="highlight">Mir ist schwindelig</td><td>to-me is dizzy</td><td>I feel dizzy</td></tr>
+    <tr><td class="highlight">Mir tut etwas weh</td><td>to-me does something pain</td><td>Something hurts me</td></tr>
+    <tr><td class="highlight">Mir ist schlecht/übel</td><td>to-me is bad/ill</td><td>I feel sick / nauseous</td></tr>
+  </table>
+  
+  <h3 style="color:var(--purple)">Emotions & Mental States</h3>
+  <table>
+    <tr><th>German</th><th>Literal</th><th>English</th></tr>
+    <tr><td class="highlight">Es tut mir leid</td><td>it does to-me sorrow</td><td>I'm sorry</td></tr>
+    <tr><td class="highlight">Es gefällt mir</td><td>it pleases to-me</td><td>I like it</td></tr>
+    <tr><td class="highlight">Es geht mir gut/schlecht</td><td>it goes to-me well/badly</td><td>I'm doing well / badly</td></tr>
+    <tr><td class="highlight">Es fehlt mir</td><td>it's lacking to-me</td><td>I miss it</td></tr>
+  </table>
+  
+  <h3 style="color:var(--teal)">Luck & Happening</h3>
+  <table>
+    <tr><th>German</th><th>Literal</th><th>English</th></tr>
+    <tr><td class="highlight">Es passiert mir</td><td>it happens to-me</td><td>It happens to me</td></tr>
+    <tr><td class="highlight">Es gelingt mir</td><td>it succeeds to-me</td><td>I succeed</td></tr>
+    <tr><td class="highlight">Es gehört mir</td><td>it belongs to-me</td><td>It belongs to me</td></tr>
+  </table>
 
   <h2>Haben & Sein</h2>
   <table>
@@ -398,24 +468,14 @@ td:first-child{color:var(--muted);font-size:11px}
 
   <h2>Modal Verbs</h2>
   <table>
-    <tr><th>Verb</th><th>Meaning</th><th>ich</th><th>du</th><th>er/sie/es</th></tr>
-    <tr><td>dürfen</td><td style="color:var(--muted);font-size:11px">may/allowed</td><td>darf</td><td>darfst</td><td>darf</td></tr>
-    <tr><td>können</td><td style="color:var(--muted);font-size:11px">can/able</td><td>kann</td><td>kannst</td><td>kann</td></tr>
-    <tr><td>mögen</td><td style="color:var(--muted);font-size:11px">to like</td><td>mag</td><td>magst</td><td>mag</td></tr>
-    <tr><td>möchten</td><td style="color:var(--muted);font-size:11px">would like</td><td>möchte</td><td>möchtest</td><td>möchte</td></tr>
-    <tr><td>müssen</td><td style="color:var(--muted);font-size:11px">must</td><td>muss</td><td>musst</td><td>muss</td></tr>
-    <tr><td>sollen</td><td style="color:var(--muted);font-size:11px">should</td><td>soll</td><td>sollst</td><td>soll</td></tr>
-    <tr><td>wollen</td><td style="color:var(--muted);font-size:11px">to want</td><td>will</td><td>willst</td><td>will</td></tr>
-  </table>
-  <table style="margin-top:4px">
-    <tr><th>Verb</th><th>wir</th><th>ihr</th><th>sie/Sie</th></tr>
-    <tr><td>dürfen</td><td>dürfen</td><td>dürft</td><td>dürfen</td></tr>
-    <tr><td>können</td><td>können</td><td>könnt</td><td>können</td></tr>
-    <tr><td>mögen</td><td>mögen</td><td>mögt</td><td>mögen</td></tr>
-    <tr><td>möchten</td><td>möchten</td><td>möchtet</td><td>möchten</td></tr>
-    <tr><td>müssen</td><td>müssen</td><td>müsst</td><td>müssen</td></tr>
-    <tr><td>sollen</td><td>sollen</td><td>sollt</td><td>sollen</td></tr>
-    <tr><td>wollen</td><td>wollen</td><td>wollt</td><td>wollen</td></tr>
+    <tr><th>Verb</th><th>Meaning</th><th>ich</th><th>du</th><th>er/sie/es</th><th>wir/sie/Sie</th><th>ihr</th></tr>
+    <tr><td>dürfen</td><td style="color:var(--muted);font-size:11px">may/allowed</td><td>darf</td><td>darfst</td><td>darf</td><td>dürfen</td><td>dürft</td></tr>
+    <tr><td>können</td><td style="color:var(--muted);font-size:11px">can/able</td><td>kann</td><td>kannst</td><td>kann</td><td>können</td><td>könnt</td></tr>
+    <tr><td>mögen</td><td style="color:var(--muted);font-size:11px">to like</td><td>mag</td><td>magst</td><td>mag</td><td>mögen</td><td>mögt</td></tr>
+    <tr><td>möchten</td><td style="color:var(--muted);font-size:11px">would like</td><td>möchte</td><td>möchtest</td><td>möchte</td><td>möchten</td><td>möchtet</td></tr>
+    <tr><td>müssen</td><td style="color:var(--muted);font-size:11px">must</td><td>muss</td><td>musst</td><td>muss</td><td>müssen</td><td>müsst</td></tr>
+    <tr><td>sollen</td><td style="color:var(--muted);font-size:11px">should</td><td>soll</td><td>sollst</td><td>soll</td><td>sollen</td><td>sollt</td></tr>
+    <tr><td>wollen</td><td style="color:var(--muted);font-size:11px">to want</td><td>will</td><td>willst</td><td>will</td><td>wollen</td><td>wollt</td></tr>
   </table>
 </div>
 
