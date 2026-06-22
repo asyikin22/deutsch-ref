@@ -133,39 +133,56 @@ td:first-child{color:var(--muted);font-size:11px}
   </div>
 
   <h2>Cases — Nom / Akk / Dat</h2>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
   
     <div class="rule-box">
       <p style="font-size:13px;font-weight:500;margin:0 0 2px">Nominativ</p>
       <p style="font-size:11px;color:var(--muted);margin:0 0 8px">baseline — memorise</p>
-      <table>
-        <tr><td style="color:var(--muted);font-size:11px;width:24px">M</td><td><span class="highlight">der / ein</span><br><span style="font-size:11px;color:var(--muted)">adj -e / -er</span></td></tr>
-        <tr><td style="color:var(--muted);font-size:11px">F</td><td><span class="highlight">die / eine</span><br><span style="font-size:11px;color:var(--muted)">adj -e</span></td></tr>
-        <tr><td style="color:var(--muted);font-size:11px">N</td><td><span class="highlight">das / ein</span><br><span style="font-size:11px;color:var(--muted)">adj -e / -es</span></td></tr>
-        <tr><td style="color:var(--muted);font-size:11px">Pl</td><td><span class="highlight">die / —</span><br><span style="font-size:11px;color:var(--muted)">adj -en / -e</span></td></tr>
-      </table>
+      <ol style="margin:0;padding-left:1.1rem">
+        <li style="font-size:12px;margin-bottom:3px;line-height:1.6">M → <span class="highlight">der / ein</span></li>
+        <li style="font-size:12px;margin-bottom:3px;line-height:1.6">F → <span class="highlight">die / eine</span></li>
+        <li style="font-size:12px;margin-bottom:3px;line-height:1.6">N → <span class="highlight">das / ein</span></li>
+        <li style="font-size:12px;margin-bottom:3px;line-height:1.6">Pl → <span class="highlight">die / —</span></li>
+      </ol>
     </div>
   
     <div class="rule-box">
       <p style="font-size:13px;font-weight:500;margin:0 0 2px">Akkusativ</p>
-      <p style="font-size:11px;color:var(--muted);margin:0 0 8px">same as nom — only masc changes</p>
-      <table>
-        <tr><td style="color:var(--muted);font-size:11px;width:24px">M</td><td><span class="highlight">den / einen</span><br><span style="font-size:11px;color:var(--muted)">adj -en</span></td></tr>
-        <tr><td style="color:var(--muted);font-size:11px">F</td><td style="font-size:11px;color:var(--muted)">no change</td></tr>
-        <tr><td style="color:var(--muted);font-size:11px">N</td><td style="font-size:11px;color:var(--muted)">no change</td></tr>
-        <tr><td style="color:var(--muted);font-size:11px">Pl</td><td style="font-size:11px;color:var(--muted)">no change</td></tr>
-      </table>
+      <p style="font-size:11px;color:var(--muted);margin:0 0 8px">only masc changes</p>
+      <ol style="margin:0;padding-left:1.1rem">
+        <li style="font-size:12px;margin-bottom:3px;line-height:1.6">M → <span class="highlight">den / einen</span></li>
+        <li style="font-size:12px;margin-bottom:3px;line-height:1.6">F → <span style="color:var(--muted)">no change</span></li>
+        <li style="font-size:12px;margin-bottom:3px;line-height:1.6">N → <span style="color:var(--muted)">no change</span></li>
+        <li style="font-size:12px;margin-bottom:3px;line-height:1.6">Pl → <span style="color:var(--muted)">no change</span></li>
+      </ol>
     </div>
   
     <div class="rule-box">
       <p style="font-size:13px;font-weight:500;margin:0 0 2px">Dativ</p>
       <p style="font-size:11px;color:var(--muted);margin:0 0 8px">forget nom — all adj -en</p>
-      <table>
-        <tr><td style="color:var(--muted);font-size:11px;width:24px">M</td><td><span class="highlight">dem / einem</span><br><span style="font-size:11px;color:var(--muted)">poss -em, adj -en</span></td></tr>
-        <tr><td style="color:var(--muted);font-size:11px">F</td><td><span class="highlight">der / einer</span><br><span style="font-size:11px;color:var(--muted)">poss -er, adj -en</span></td></tr>
-        <tr><td style="color:var(--muted);font-size:11px">N</td><td><span class="highlight">dem / einem</span><br><span style="font-size:11px;color:var(--muted)">poss -em, adj -en</span></td></tr>
-        <tr><td style="color:var(--muted);font-size:11px">Pl</td><td><span class="highlight">den / —</span><br><span style="font-size:11px;color:var(--muted)">poss -en, adj -en</span></td></tr>
-      </table>
+      <ol style="margin:0;padding-left:1.1rem">
+        <li style="font-size:12px;margin-bottom:3px;line-height:1.6">M → <span class="highlight">dem / einem</span></li>
+        <li style="font-size:12px;margin-bottom:3px;line-height:1.6">F → <span class="highlight">der / einer</span></li>
+        <li style="font-size:12px;margin-bottom:3px;line-height:1.6">N → <span class="highlight">dem / einem</span></li>
+        <li style="font-size:12px;margin-bottom:3px;line-height:1.6">Pl → <span class="highlight">den / —</span></li>
+      </ol>
+    </div>
+  
+    <div class="rule-box">
+      <p style="font-size:13px;font-weight:500;margin:0 0 2px">Präpositionen</p>
+      <p style="font-size:11px;color:var(--muted);margin:0 0 8px">quick reference</p>
+      <div style="margin-bottom:6px">
+        <p style="font-size:11px;color:var(--muted);margin:0 0 2px">Dativ</p>
+        <p style="font-size:12px;color:var(--text);margin:0;line-height:1.6">aus, bei, mit, nach, seit, von, zu, gegenüber</p>
+      </div>
+      <div style="margin-bottom:6px">
+        <p style="font-size:11px;color:var(--muted);margin:0 0 2px">Akkusativ</p>
+        <p style="font-size:12px;color:var(--text);margin:0;line-height:1.6">durch, für, gegen, ohne, um</p>
+      </div>
+      <div>
+        <p style="font-size:11px;color:var(--muted);margin:0 0 2px">Zwei-Wege</p>
+        <p style="font-size:12px;color:var(--text);margin:0;line-height:1.6">an, auf, hinter, in, neben, über, unter, vor, zwischen</p>
+      </div>
     </div>
   
   </div>
