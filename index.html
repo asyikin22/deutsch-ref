@@ -176,33 +176,45 @@ td:first-child{color:var(--muted);font-size:11px}
   
   </div>
 
-  <h2>Master Key — Adjective Endings</h2>
-  <table>
-    <tr>
-      <th class="mk-label"></th>
-      <th class="mk-cell-m">M</th>
-      <th class="mk-cell-f">F</th>
-      <th class="mk-cell-n">N</th>
-      <th class="mk-cell-pl">PL</th>
-    </tr>
-    <tr><td><span class="tag nom">NOM</span></td><td class="mk-cell-m" style="background:transparent;color:var(--blue)">-er</td><td class="mk-cell-f" style="background:transparent;color:var(--coral)">-e</td><td class="mk-cell-n" style="background:transparent;color:var(--green)">-es</td><td class="mk-cell-pl" style="background:transparent;color:var(--gold)">-e</td></tr>
-    <tr><td><span class="tag acc">AKK</span></td><td class="highlight">-en</td><td style="color:var(--coral)">-e</td><td style="color:var(--green)">-es</td><td style="color:var(--gold)">-e</td></tr>
-    <tr><td><span class="tag dat">DAT</span></td><td class="highlight">-em</td><td class="highlight" style="color:var(--coral)">-er</td><td class="highlight">-em</td><td class="highlight" style="color:var(--gold)">-en</td></tr>
-    <tr><td><span class="tag gen">GEN</span></td><td>-es</td><td style="color:var(--coral)">-er</td><td>-es</td><td style="color:var(--gold)">-er</td></tr>
-  </table>
-  <div class="note">Strong endings (no article / indefinite article). Weak endings after definite article = mostly <strong>-en</strong></div>
+  <h2>Adjective Endings</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px">
+    <div>
+      <p style="font-size:10px;color:var(--muted);margin-bottom:4px">Strong (no/indef article)</p>
+      <table style="font-size:10px">
+        <tr>
+          <th class="mk-label"></th>
+          <th class="mk-cell-m" style="padding:3px 4px;font-size:10px">M</th>
+          <th class="mk-cell-f" style="padding:3px 4px;font-size:10px">F</th>
+          <th class="mk-cell-n" style="padding:3px 4px;font-size:10px">N</th>
+          <th class="mk-cell-pl" style="padding:3px 4px;font-size:10px">PL</th>
+        </tr>
+        <tr><td><span class="tag nom">NOM</span></td><td style="color:var(--blue);text-align:center">-er</td><td style="color:var(--coral);text-align:center">-e</td><td style="color:var(--green);text-align:center">-es</td><td style="color:var(--gold);text-align:center">-e</td></tr>
+        <tr><td><span class="tag acc">AKK</span></td><td class="highlight" style="text-align:center">-en</td><td style="color:var(--coral);text-align:center">-e</td><td style="color:var(--green);text-align:center">-es</td><td style="color:var(--gold);text-align:center">-e</td></tr>
+        <tr><td><span class="tag dat">DAT</span></td><td class="highlight" style="text-align:center">-em</td><td class="highlight" style="color:var(--coral);text-align:center">-er</td><td class="highlight" style="text-align:center">-em</td><td class="highlight" style="color:var(--gold);text-align:center">-en</td></tr>
+        <tr><td><span class="tag gen">GEN</span></td><td style="text-align:center">-es</td><td style="color:var(--coral);text-align:center">-er</td><td style="text-align:center">-es</td><td style="color:var(--gold);text-align:center">-er</td></tr>
+      </table>
+    </div>
+    <div>
+      <p style="font-size:10px;color:var(--muted);margin-bottom:4px">Weak (after def article)</p>
+      <table style="font-size:10px">
+        <tr><th style="padding:3px 4px;font-size:10px">Case</th><th style="padding:3px 4px;font-size:10px">M</th><th style="padding:3px 4px;font-size:10px">F</th><th style="padding:3px 4px;font-size:10px">N</th><th style="padding:3px 4px;font-size:10px">PL</th></tr>
+        <tr><td><span class="tag nom">NOM</span></td><td style="text-align:center">-e</td><td style="text-align:center">-e</td><td style="text-align:center">-e</td><td class="highlight" style="text-align:center">-en</td></tr>
+        <tr><td><span class="tag acc">AKK</span></td><td class="highlight" style="text-align:center">-en</td><td style="text-align:center">-e</td><td style="text-align:center">-e</td><td class="highlight" style="text-align:center">-en</td></tr>
+        <tr><td><span class="tag dat">DAT</span></td><td class="highlight" style="text-align:center">-en</td><td class="highlight" style="text-align:center">-en</td><td class="highlight" style="text-align:center">-en</td><td class="highlight" style="text-align:center">-en</td></tr>
+        <tr><td><span class="tag gen">GEN</span></td><td class="highlight" style="text-align:center">-en</td><td class="highlight" style="text-align:center">-en</td><td class="highlight" style="text-align:center">-en</td><td class="highlight" style="text-align:center">-en</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="note">Weak = mostly <strong>-en</strong> — only NOM (all) and AKK (F/N) use <strong>-e</strong></div>
 
-  <h2>Adjective Endings — Weak Declension</h2>
-  <p style="font-size:11px;color:var(--muted);margin-bottom:6px">After definite article (der/die/das)</p>
+  <h2>Demonstrative (dieser/diese/dieses)</h2>
+  <p style="font-size:11px;color:var(--muted);margin-bottom:6px">This / these</p>
   <table>
-    <tr><th>Case</th><th>Masc</th><th>Fem</th><th>Neut</th><th>Plural</th></tr>
-    <tr><td><span class="tag nom">NOM</span></td><td>-e</td><td>-e</td><td>-e</td><td class="highlight">-en</td></tr>
-    <tr><td><span class="tag acc">AKK</span></td><td class="highlight">-en</td><td>-e</td><td>-e</td><td class="highlight">-en</td></tr>
-    <tr><td><span class="tag dat">DAT</span></td><td class="highlight">-en</td><td class="highlight">-en</td><td class="highlight">-en</td><td class="highlight">-en</td></tr>
-    <tr><td><span class="tag gen">GEN</span></td><td class="highlight">-en</td><td class="highlight">-en</td><td class="highlight">-en</td><td class="highlight">-en</td></tr>
+    <tr><th></th><th>Masc</th><th>Fem</th><th>Neut</th><th>Plural</th></tr>
+    <tr><td><span class="tag nom">NOM</span></td><td>dieser</td><td>diese</td><td>dieses</td><td>diese</td></tr>
+    <tr><td><span class="tag acc">AKK</span></td><td class="highlight">diesen</td><td>diese</td><td>dieses</td><td>diese</td></tr>
+    <tr><td><span class="tag dat">DAT</span></td><td class="highlight">diesem</td><td class="highlight">dieser</td><td class="highlight">diesem</td><td class="highlight">diesen</td></tr>
   </table>
-  <div class="note">Mostly <strong>-en</strong><br>
-    — only NOM (all genders) and AKK (Fem/Neut) use <strong>-e</strong>.</div>
 
   <h2>Past Tense (Perfekt)</h2>
   <table>
@@ -329,15 +341,6 @@ td:first-child{color:var(--muted);font-size:11px}
     <tr><td><span class="tag gen">GEN</span></td><td>keines</td><td>keiner</td><td>keines</td></tr>
   </table>
   <div class="note">Follows the same endings as <strong>ein/eine</strong> — just add <strong>k-</strong> in front.</div>
-
-  <h2>Demonstrative (dieser/diese/dieses)</h2>
-  <p style="font-size:11px;color:var(--muted);margin-bottom:6px">This / these</p>
-  <table>
-    <tr><th></th><th>Masc</th><th>Fem</th><th>Neut</th><th>Plural</th></tr>
-    <tr><td><span class="tag nom">NOM</span></td><td>dieser</td><td>diese</td><td>dieses</td><td>diese</td></tr>
-    <tr><td><span class="tag acc">AKK</span></td><td class="highlight">diesen</td><td>diese</td><td>dieses</td><td>diese</td></tr>
-    <tr><td><span class="tag dat">DAT</span></td><td class="highlight">diesem</td><td class="highlight">dieser</td><td class="highlight">diesem</td><td class="highlight">diesen</td></tr>
-  </table>
 
   <h2>Possessive Determiners</h2>
   <h3>Nominative</h3>
