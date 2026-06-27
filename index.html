@@ -788,10 +788,15 @@ td:first-child{color:var(--muted);font-size:11px}
   </div>
 
   <div class="rule-box" style="margin-bottom:10px">
-    <table>
+    <table style="table-layout:fixed;width:100%">
+      <colgroup>
+        <col style="width:28%">
+        <col style="width:38%">
+        <col style="width:34%">
+      </colgroup>
       <tr><th>Type</th><th>Formula</th><th>Example</th></tr>
       <tr>
-        <td>AKK reflexive<br><small>reflexive = only object</small></td>
+        <td>AKK reflexive<br><small>only object</small></td>
         <td>S + V + <span class="highlight">Refl(AKK)</span></td>
         <td class="ex"><span>Ich wasche mich.</span></td>
       </tr>
@@ -811,13 +816,13 @@ td:first-child{color:var(--muted);font-size:11px}
         <td class="ex"><span>Waschst du dich?</span></td>
       </tr>
       <tr>
-        <td>Subclause<br><small>refl before verb-at-end</small></td>
+        <td>Subclause<br><small>refl before end-verb</small></td>
         <td>... + <span class="highlight">Refl</span> + V</td>
-        <td class="ex"><span>..., weil ich mich wasche.</span></td>
+        <td class="ex"><span>weil ich mich wasche.</span></td>
       </tr>
     </table>
   </div>
-
+  
   <h2>Reflexive Pronouns</h2>
   <table>
     <tr><th></th><th>NOM</th><th>AKK</th><th>DAT</th><th style="color:var(--gold)">Refl AKK</th><th style="color:var(--gold)">Refl DAT</th></tr>
