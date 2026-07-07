@@ -15,7 +15,7 @@
   --bg:#0f0f0f;
   --surface:#1a1a1a;
   --surface2:#232323;
-  --border:#2e2e2e;
+  --b:#2e2e2e;
   --text:#e8e8e8;
   --muted:#888;
   --gold:#e8c97e;
@@ -27,9 +27,9 @@
   --pill-bg:#2a2a2a;
 }
 body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;min-height:100vh;padding-bottom:60px}
-nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--bg);border-top:1px solid var(--border);padding:8px 12px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--bg);b-top:1px solid var(--b);padding:8px 12px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
 nav::-webkit-scrollbar{display:none}
-.tab{flex-shrink:0;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:12px;cursor:pointer;transition:all .15s}
+.tab{flex-shrink:0;padding:5px 12px;b-radius:20px;b:1px solid var(--border);background:transparent;color:var(--muted);font-size:12px;cursor:pointer;transition:all .15s}
 .tab.active{background:var(--gold);color:#111;border-color:var(--gold);font-weight:600}
 .section{display:none;padding:12px}
 .section.active{display:block}
@@ -327,6 +327,7 @@ td:first-child{color:var(--muted);font-size:11px}
   </div>
   <div class="ex" style="margin:6px 0;font-size:10px">
     Ich habe <span style="color:var(--gold)">morgens</span> <span style="color:var(--teal)">dem Pferd</span> <span style="color:var(--blue)">aus Mitleid</span> <span style="color:var(--purple)">schnell</span> <span style="color:var(--coral)">Wasser</span> <span style="color:var(--green)">in den Stall</span> gebracht.
+  </div>
   <div class="note">
     1️⃣ <span style="color:var(--teal)">DAT</span> → right after Te &nbsp;&nbsp; 2️⃣ <span style="color:var(--coral)">AKK</span> → right before Lo
   </div>
@@ -337,6 +338,38 @@ td:first-child{color:var(--muted);font-size:11px}
     <tr><td>Noun + noun → 1️⃣ <span style="color:var(--teal)">DAT</span> 2️⃣ <span style="color:var(--coral)">AKK</span></td><td class="ex"><span>Ich gebe <span style="color:var(--teal)">dem Kind</span> <span style="color:var(--coral)">das Buch</span>.</span></td></tr>
     <tr><td><span style="color:var(--coral)">AKK</span> → pronoun → jumps ahead</td><td class="ex"><span>Ich gebe <span style="color:var(--coral)">es</span> <span style="color:var(--teal)">meiner Schwester</span>.</span></td></tr>
     <tr><td>Both pronouns → 1️⃣ <span style="color:var(--coral)">AKK</span> 2️⃣ <span style="color:var(--teal)">DAT</span></td><td class="ex"><span>Ich gebe <span style="color:var(--coral)">es</span> <span style="color:var(--teal)">ihr</span>.</span></td></tr>
+  </table>
+
+  <h2>Satzklammer Triggers</h2>
+  <div class="note">Only the <strong style="color:var(--gold)">finite verb</strong> sits in V2. Every <strong style="color:var(--coral)">non-finite</strong> verb form goes to the clause end — modals are just one of five triggers.</div>
+  <table>
+    <colgroup><col style="width:26%"><col style="width:44%"><col style="width:30%"></colgroup>
+    <tr><th>Trigger</th><th>Example</th><th>Non-finite form</th></tr>
+    <tr>
+      <td>Modal</td>
+      <td class="ex"><span>Ich <span style="color:var(--gold)">kann</span> Deutsch <span style="color:var(--coral)">sprechen</span>.</span></td>
+      <td style="font-size:11px;color:var(--muted)">Infinitiv</td>
+    </tr>
+    <tr>
+      <td>haben/sein</td>
+      <td class="ex"><span>Ich <span style="color:var(--gold)">habe</span> das Buch <span style="color:var(--coral)">gelesen</span>.</span></td>
+      <td style="font-size:11px;color:var(--muted)">Partizip II</td>
+    </tr>
+    <tr>
+      <td>werden <small style="color:var(--muted)">(Futur)</small></td>
+      <td class="ex"><span>Ich <span style="color:var(--gold)">werde</span> das Buch <span style="color:var(--coral)">lesen</span>.</span></td>
+      <td style="font-size:11px;color:var(--muted)">Infinitiv</td>
+    </tr>
+    <tr>
+      <td>werden <small style="color:var(--muted)">(Passiv)</small></td>
+      <td class="ex"><span>Das Buch <span style="color:var(--gold)">wird</span> <span style="color:var(--coral)">gelesen</span>.</span></td>
+      <td style="font-size:11px;color:var(--muted)">Partizip II</td>
+    </tr>
+    <tr>
+      <td>gehen/bleiben/<br>lassen/hören/sehen</td>
+      <td class="ex"><span>Wir <span style="color:var(--gold)">gehen</span> einmal pro Monat <span style="color:var(--coral)">campen</span>.</span></td>
+      <td style="font-size:11px;color:var(--muted)">bare Infinitiv</td>
+    </tr>
   </table>
     
   <h2>Clause Patterns</h2>
