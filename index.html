@@ -67,7 +67,7 @@ td:first-child{color:var(--muted);font-size:11px}
 .ex span{color:var(--text);font-style:normal}
 .rule-box{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:10px;margin:6px 0}
 .rule-box h3{margin:0 0 6px;font-size:12px}
-.q-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:6px 0}
+.q-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin:6px 0}
 .q-card{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:7px 9px}
 .q-card .q{font-size:12px;color:var(--gold);font-weight:600}
 .q-card .a{font-size:11px;color:var(--muted);margin-top:2px}
@@ -84,6 +84,7 @@ td:first-child{color:var(--muted);font-size:11px}
 .mk-cell-pl{background:#2a2010;color:var(--gold);font-weight:600;text-align:center}
 .mk-label{color:var(--muted);font-size:11px;font-weight:500;text-align:center}
 .prep{color:var(--gold);font-weight:600}
+.wo-sub{display:block;font-size:10px;color:var(--muted);font-weight:400;margin-top:2px}
 </style>
 </head>
 <body>
@@ -830,7 +831,7 @@ td:first-child{color:var(--muted);font-size:11px}
     <div class="q-card"><div class="q">Wann</div><div class="a">When</div></div>
     <div class="q-card"><div class="q">Warum</div><div class="a">Why</div></div>
     <div class="q-card"><div class="q">Wie</div><div class="a">How</div></div>
-    <div class="q-card"><div class="q">Wie viel / Wie viele</div><div class="a">How much / How many</div></div>
+    <div class="q-card"><div class="q">Wie viel/viele</div><div class="a">How much/many</div></div>
   </div>
 
   <h2>Case Trick — Who/Whom</h2>
@@ -845,23 +846,55 @@ td:first-child{color:var(--muted);font-size:11px}
 
   <h2>Wo-Compounds (Prepositional Questions)</h2>
   <table>
-    <tr><th>Wo-compound</th><th>Preposition meaning</th><th>Example question</th><th>Meaning</th></tr>
-    <tr><td>Wo<span class="prep">für</span></td><td><span class="prep">for</span> what</td><td>Wofür brauchst du das Geld?</td><td>What do you need the money for?</td></tr>
-    <tr><td>Wor<span class="prep">über</span></td><td><span class="prep">about</span> what</td><td>Worüber ärgerst du dich?</td><td>What are you annoyed about?</td></tr>
-    <tr><td>Wor<span class="prep">an</span></td><td><span class="prep">at/on/of</span> what</td><td>Woran denkst du?</td><td>What are you thinking of?</td></tr>
-    <tr><td></td><td></td><td>Woran erinnerst du dich?</td><td>What do you remember?</td></tr>
-    <tr><td>Wo<span class="prep">von</span></td><td><span class="prep">from/of</span> what</td><td>Wovon handelt der Film?</td><td>What's the film about?</td></tr>
-    <tr><td></td><td></td><td>Wovon träumst du?</td><td>What do you dream of?</td></tr>
-    <tr><td>Wor<span class="prep">um</span></td><td><span class="prep">about/for</span> what</td><td>Worum geht es in dem Buch?</td><td>What's the book about?</td></tr>
-    <tr><td></td><td></td><td>Worum hast du dich beworben?</td><td>What did you apply for?</td></tr>
-    <tr><td>Wo<span class="prep">mit</span></td><td><span class="prep">with</span> what</td><td>Womit schreibst du?</td><td>What are you writing with?</td></tr>
-    <tr><td>Wo<span class="prep">zu</span></td><td><span class="prep">what for</span>/to what end</td><td>Wozu brauchst du das?</td><td>What do you need that for?</td></tr>
-    <tr><td>Wor<span class="prep">auf</span></td><td><span class="prep">on/for</span> what</td><td>Worauf wartest du?</td><td>What are you waiting for?</td></tr>
-    <tr><td></td><td></td><td>Worauf freust du dich?</td><td>What are you looking forward to?</td></tr>
-    <tr><td>Wor<span class="prep">aus</span></td><td><span class="prep">out of/from</span> what</td><td>Woraus besteht das?</td><td>What's this made of?</td></tr>
-    <tr><td>Wo<span class="prep">nach</span></td><td><span class="prep">after/for</span> what</td><td>Wonach riecht das?</td><td>What does that smell like?</td></tr>
-    <tr><td>Wo<span class="prep">gegen</span></td><td><span class="prep">against</span> what</td><td>Wogegen kämpft ihr?</td><td>What are you fighting against?</td></tr>
-    <tr><td>Wo<span class="prep">bei</span></td><td><span class="prep">during/in the course of</span> what</td><td>Wobei hast du geholfen?</td><td>What did you help with?</td></tr>
+    <tr><th>Wo-compound</th><th>Example question</th></tr>
+    <tr>
+      <td>Wo<span class="prep">für</span><span class="wo-sub"><span class="prep">for</span> what</span></td>
+      <td>Wofür brauchst du das Geld?<span class="wo-sub">What do you need the money for?</span></td>
+    </tr>
+    <tr>
+      <td>Wor<span class="prep">über</span><span class="wo-sub"><span class="prep">about</span> what</span></td>
+      <td>Worüber ärgerst du dich?<span class="wo-sub">What are you annoyed about?</span></td>
+    </tr>
+    <tr>
+      <td>Wor<span class="prep">an</span><span class="wo-sub"><span class="prep">at/on/of</span> what</span></td>
+      <td>Woran denkst du?<span class="wo-sub">What are you thinking of?</span><br>Woran erinnerst du dich?<span class="wo-sub">What do you remember?</span></td>
+    </tr>
+    <tr>
+      <td>Wo<span class="prep">von</span><span class="wo-sub"><span class="prep">from/of</span> what</span></td>
+      <td>Wovon handelt der Film?<span class="wo-sub">What's the film about?</span><br>Wovon träumst du?<span class="wo-sub">What do you dream of?</span></td>
+    </tr>
+    <tr>
+      <td>Wor<span class="prep">um</span><span class="wo-sub"><span class="prep">about/for</span> what</span></td>
+      <td>Worum geht es in dem Buch?<span class="wo-sub">What's the book about?</span><br>Worum hast du dich beworben?<span class="wo-sub">What did you apply for?</span></td>
+    </tr>
+    <tr>
+      <td>Wo<span class="prep">mit</span><span class="wo-sub"><span class="prep">with</span> what</span></td>
+      <td>Womit schreibst du?<span class="wo-sub">What are you writing with?</span></td>
+    </tr>
+    <tr>
+      <td>Wo<span class="prep">zu</span><span class="wo-sub"><span class="prep">what for</span>/to what end</span></td>
+      <td>Wozu brauchst du das?<span class="wo-sub">What do you need that for?</span></td>
+    </tr>
+    <tr>
+      <td>Wor<span class="prep">auf</span><span class="wo-sub"><span class="prep">on/for</span> what</span></td>
+      <td>Worauf wartest du?<span class="wo-sub">What are you waiting for?</span><br>Worauf freust du dich?<span class="wo-sub">What are you looking forward to?</span></td>
+    </tr>
+    <tr>
+      <td>Wor<span class="prep">aus</span><span class="wo-sub"><span class="prep">out of/from</span> what</span></td>
+      <td>Woraus besteht das?<span class="wo-sub">What's this made of?</span></td>
+    </tr>
+    <tr>
+      <td>Wo<span class="prep">nach</span><span class="wo-sub"><span class="prep">after/for</span> what</span></td>
+      <td>Wonach riecht das?<span class="wo-sub">What does that smell like?</span></td>
+    </tr>
+    <tr>
+      <td>Wo<span class="prep">gegen</span><span class="wo-sub"><span class="prep">against</span> what</span></td>
+      <td>Wogegen kämpft ihr?<span class="wo-sub">What are you fighting against?</span></td>
+    </tr>
+    <tr>
+      <td>Wo<span class="prep">bei</span><span class="wo-sub"><span class="prep">during/in the course of</span> what</span></td>
+      <td>Wobei hast du geholfen?<span class="wo-sub">What did you help with?</span></td>
+    </tr>
   </table>
 </div>
 
