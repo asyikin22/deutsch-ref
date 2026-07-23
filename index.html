@@ -1292,6 +1292,12 @@ function show(id) {
   document.getElementById(id).classList.add('active');
   event.target.classList.add('active');
 }
+document.getElementById('navLeft').addEventListener('click', () => {
+  document.getElementById('tabsScroll').scrollBy({left: -120, behavior: 'smooth'});
+});
+document.getElementById('navRight').addEventListener('click', () => {
+  document.getElementById('tabsScroll').scrollBy({left: 120, behavior: 'smooth'});
+});
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js');
 }
