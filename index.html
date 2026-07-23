@@ -98,6 +98,7 @@ td:first-child{color:var(--muted);font-size:11px}
   <div class="tabs-scroll" id="tabsScroll">
     <button class="tab active" onclick="show('keyrules')">Key Rules</button>
     <button class="tab" onclick="show('wordorder')">Word Order</button>
+    <button class="tab" onclick="show('tenses')">Tenses</button>
     <button class="tab" onclick="show('prepositions')">Prepositions</button>
     <button class="tab" onclick="show('articles')">Articles</button>
     <button class="tab" onclick="show('pronouns')">Pronouns</button>
@@ -302,16 +303,6 @@ td:first-child{color:var(--muted);font-size:11px}
     <tr><td class="highlight">nächstes</td><td><span class="tag nom">NOM</span> Neut</td><td>Jahr, Wochenende</td></tr>
   </table>
 
-  <h2>Past Tense (Perfekt)</h2>
-  <table>
-    <tr><th>Formula</th><th>Used for</th></tr>
-    <tr><td style="color:var(--teal)">haben + Partizip II</td><td>Most verbs</td></tr>
-    <tr><td style="color:var(--coral)">sein + Partizip II</td><td>Movement verbs</td></tr>
-    <tr><td>ge + stem + t</td><td class="ex"><span>machen → gemacht</span></td></tr>
-    <tr><td>ge + stem + en</td><td class="ex"><span>fahren → gefahren</span></td></tr>
-    <tr><td>no ge- prefix</td><td>verbs ending in -ieren</td></tr>
-  </table>
-
 </div>
 
 <!-- WORD ORDER -->
@@ -485,6 +476,55 @@ td:first-child{color:var(--muted);font-size:11px}
     <tr><td class="highlight">seitdem</td><td>since</td><td class="ex"><span>..., seitdem ich hier <span style="color:var(--gold)">bin</span>.</span></td></tr>
     <tr><td class="highlight">falls</td><td>in case / if</td><td class="ex"><span>..., falls es <span style="color:var(--gold)">klappt</span>.</span></td></tr>
     <tr><td class="highlight">sodass</td><td>so that (result)</td><td class="ex"><span>..., sodass ich <span style="color:var(--gold)">verstehe</span>.</span></td></tr>
+  </table>
+</div>
+
+<!-- TENSES -->
+<div id="tenses" class="section">
+  <h2>Perfekt (Present Perfect)</h2>
+  <div class="note">Default spoken past. Formula: <strong>haben/sein + Partizip II</strong> (verb-final)</div>
+  <table>
+    <tr><th>Takes</th><th>Verbs</th></tr>
+    <tr><td class="highlight">haben</td><td>most verbs</td></tr>
+    <tr><td class="highlight">sein</td><td>movement (gehen, fahren, kommen) · change of state (einschlafen, sterben) · sein/bleiben/werden</td></tr>
+  </table>
+  <table>
+    <tr><th>Partizip II formation</th><th>Example</th></tr>
+    <tr><td>ge+stem+t (weak)</td><td class="ex"><span>machen → gemacht</span></td></tr>
+    <tr><td>ge+stem+en (strong)</td><td class="ex"><span>fahren → gefahren</span></td></tr>
+    <tr><td>no ge- (-ieren / prefixed)</td><td class="ex"><span>studieren → studiert · verstehen → verstanden</span></td></tr>
+  </table>
+  <div class="ex">Ich <span style="color:var(--gold)">habe</span> das Buch <span style="color:var(--gold)">gelesen</span>. — I read the book.</div>
+
+  <h2>Präteritum (Simple Past)</h2>
+  <div class="note">Written/formal German — but haben, sein, modals use it even in speech</div>
+  <table>
+    <tr><th>Formation</th><th>Example</th></tr>
+    <tr><td>weak: stem+te+ending</td><td class="ex"><span>machen → machte</span></td></tr>
+    <tr><td>strong: vowel change, no -te</td><td class="ex"><span>fahren → fuhr</span></td></tr>
+  </table>
+  <table>
+    <tr><th>Pronoun</th><th>sein</th><th>haben</th><th>müssen</th><th>können</th></tr>
+    <tr><td>ich</td><td>war</td><td>hatte</td><td>musste</td><td>konnte</td></tr>
+    <tr><td>du</td><td>warst</td><td>hattest</td><td>musstest</td><td>konntest</td></tr>
+    <tr><td>er/sie/es</td><td>war</td><td>hatte</td><td>musste</td><td>konnte</td></tr>
+    <tr><td>wir</td><td>waren</td><td>hatten</td><td>mussten</td><td>konnten</td></tr>
+    <tr><td>ihr</td><td>wart</td><td>hattet</td><td>musstet</td><td>konntet</td></tr>
+    <tr><td>sie/Sie</td><td>waren</td><td>hatten</td><td>mussten</td><td>konnten</td></tr>
+  </table>
+  <div class="ex">Ich <span style="color:var(--gold)">war</span> müde. — I was tired.</div>
+
+  <h2>Futur I (Future)</h2>
+  <div class="note">Formula: <strong>werden + Infinitiv</strong> (verb-final) — often replaced by Präsens + time word</div>
+  <div class="ex">Ich <span style="color:var(--gold)">werde</span> morgen <span style="color:var(--gold)">arbeiten</span>. — I will work tomorrow.</div>
+  <div class="ex">or simply: Ich <span style="color:var(--gold)">arbeite</span> morgen.</div>
+
+  <h2>Quick Comparison</h2>
+  <table>
+    <tr><th>Tense</th><th>Formula</th><th>When</th></tr>
+    <tr><td class="highlight">Perfekt</td><td>haben/sein + Partizip II</td><td>spoken past</td></tr>
+    <tr><td class="highlight">Präteritum</td><td>stem+te / vowel change</td><td>written past · haben/sein/modals in speech</td></tr>
+    <tr><td class="highlight">Futur I</td><td>werden + Infinitiv</td><td>rare — Präsens+time usually used</td></tr>
   </table>
 </div>
 
