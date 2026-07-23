@@ -27,8 +27,12 @@
   --pill-bg:#2a2a2a;
 }
 body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;min-height:100vh;padding-bottom:60px}
-nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--bg);border-top:1px solid var(--border);padding:8px 12px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
-nav::-webkit-scrollbar{display:none}
+nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--bg);border-top:1px solid var(--border);padding:8px 4px;display:flex;align-items:center;gap:2px}
+.tabs-scroll{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;flex:1;scroll-behavior:smooth}
+.tabs-scroll::-webkit-scrollbar{display:none}
+.nav-arrow{flex-shrink:0;background:transparent;border:none;color:var(--muted);font-size:20px;line-height:1;padding:4px 8px;cursor:pointer;transition:color .15s}
+.nav-arrow:hover{color:var(--gold)}
+.nav-arrow:active{color:var(--gold)}
 .tab{flex-shrink:0;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:12px;cursor:pointer;transition:all .15s}
 .tab.active{background:var(--gold);color:#111;border-color:var(--gold);font-weight:600}
 .section{display:none;padding:12px}
@@ -90,18 +94,22 @@ td:first-child{color:var(--muted);font-size:11px}
 <body>
 
 <nav>
-  <button class="tab active" onclick="show('keyrules')">Key Rules</button>
-  <button class="tab" onclick="show('wordorder')">Word Order</button>
-  <button class="tab" onclick="show('prepositions')">Prepositions</button>
-  <button class="tab" onclick="show('articles')">Articles</button>
-  <button class="tab" onclick="show('pronouns')">Pronouns</button>
-  <button class="tab" onclick="show('verbs')">Verbs</button>
-  <button class="tab" onclick="show('adverbs')">Adverbs</button>
-  <button class="tab" onclick="show('reflexive')">Reflexive</button>
-  <button class="tab" onclick="show('questions')">Questions</button>
-  <button class="tab" onclick="show('negation')">Negation</button>
-  <button class="tab" onclick="show('gender')">Gender</button>
-  <button class="tab" onclick="show('separable')">Separable</button>
+  <button class="nav-arrow" id="navLeft" aria-label="Scroll left">‹</button>
+  <div class="tabs-scroll" id="tabsScroll">
+    <button class="tab active" onclick="show('keyrules')">Key Rules</button>
+    <button class="tab" onclick="show('wordorder')">Word Order</button>
+    <button class="tab" onclick="show('prepositions')">Prepositions</button>
+    <button class="tab" onclick="show('articles')">Articles</button>
+    <button class="tab" onclick="show('pronouns')">Pronouns</button>
+    <button class="tab" onclick="show('verbs')">Verbs</button>
+    <button class="tab" onclick="show('adverbs')">Adverbs</button>
+    <button class="tab" onclick="show('reflexive')">Reflexive</button>
+    <button class="tab" onclick="show('questions')">Questions</button>
+    <button class="tab" onclick="show('negation')">Negation</button>
+    <button class="tab" onclick="show('gender')">Gender</button>
+    <button class="tab" onclick="show('separable')">Separable</button>
+  </div>
+  <button class="nav-arrow" id="navRight" aria-label="Scroll right">›</button>
 </nav>
 
 <!-- KEY RULES -->
